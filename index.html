@@ -1,167 +1,822 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-
-  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
   <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.3.9',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
 
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 <meta name="generator" content="Hexo 5.2.0"></head>
-
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+<div id="page">
+
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/cover.jpeg)">
+  <div class="overlay">
+  <div class="featured">
+    <div class="avatar"><a href="/"><img src="/images/avatar.jpeg"></a></div>
+    <span>John Doe</span>
+    <h1>Hexo</h1>
+    
+    
+  </div>
+  </div>
+</div>
+
+<div id="lx-main-content">
+  <div class="lx-post"> 
+
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/12/02/Java%E5%9F%BA%E7%A1%80/"></a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-12-02</span>
+      <p><h1 id="Java基础学习"><a href="#Java基础学习" class="headerlink" title="Java基础学习"></a>Java基础学习</h1><h2 id="1-HashMap"><a href="#1-HashMap" class="headerlink" title="1.HashMap"></a>1.HashMap</h2><h3 id="JDK1-7是数组-链表-，-JDK1-8之后改为数组-链表-红黑树"><a href="#JDK1-7是数组-链表-，-JDK1-8之后改为数组-链表-红黑树" class="headerlink" title="==JDK1.7是数组+链表 ， JDK1.8之后改为数组+链表+红黑树=="></a>==JDK1.7是数组+链表 ， JDK1.8之后改为数组+链表+红黑树==</h3><ul>
+<li><p>数组里面每一个元素存放的是一个Entry节点，Entry节点有key和value两个属性，key可以是int类型，可以是字符串类型。数组存放元素的下标由key来决定通过put()函数插入，通过get(key)函数取出来。</p>
+</li>
+<li><p>假设通过hash函数通过key算出来的下标一样，那么就发生哈希冲突。这个时候，就要赋予Entry节点一个==next==属性，用来指向下一个Entry节点（链表）。</p>
+<p>![截屏2020-12-04 14.17.24](/Users/CodeKong/USERPROG1/NoteBook/Java/截屏2020-12-04 14.17.24.png)</p>
+</li>
+<li><p>有关链表的java简单介绍如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object content;</span><br><span class="line">    <span class="keyword">private</span> Node next;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(Object content, Node next)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.content = content;</span><br><span class="line">        <span class="keyword">this</span>.next = next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//定义头结点</span></span><br><span class="line">        Node header = <span class="keyword">new</span> Node(<span class="keyword">new</span> Object(), <span class="keyword">null</span>);</span><br><span class="line">      <span class="comment">//第二个结点</span></span><br><span class="line">        header.next = <span class="keyword">new</span> Node(<span class="keyword">new</span> Object(), <span class="keyword">null</span>);</span><br><span class="line">      <span class="comment">//在头结点钱插入一个结点</span></span><br><span class="line">        <span class="keyword">new</span> Node(<span class="keyword">new</span> Object(),header);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>==那么问题来了，当第3个结点来的时候，应该插在哪？，带来了什么问题？==</p>
+<blockquote>
+<ol>
+<li><p>在JDK1.7中，新来的结点插在链表的==头部==，因为链表的头插法比较快速。如果是尾插法的话，还需要一个一个遍历链表，判断当前结点的next指针是否为空。头插法图如下。</p>
+<p>![截屏2020-12-04 14.32.40](/Users/CodeKong/USERPROG1/NoteBook/Java/截屏2020-12-04 14.32.40.png)</p>
+</li>
+<li><p>当我们需要get(key)取Entry3结点的时候，通过key算出hashcode，算出Entry3结点数组下标在2位置。但是HashMap的key是唯一的，Entry1的key并不是Entry3的key，下一个元素Entry2的key也不是。==因为我们只定义了向下的指针，而头插法的Entry3在Entry1上面，找不到Entry3。== </p>
+</li>
+<li><p>有2种解决办法，第一个：定义双向链表。第二种：如图所示：</p>
+<p>每次头插入一个新结点的时候，整个链表都往下移动一格，具体操作代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">put(key,value)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> hashcode = key.hashcode();</span><br><span class="line">  <span class="keyword">int</span> index = hashcode % table.length;</span><br><span class="line">  table[index] = <span class="keyword">new</span> Entry(key,value,table[index]);</span><br><span class="line">&#125;</span><br><span class="line">table[index] = header;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<p>  ![截屏2020-12-04 14.47.40](/Users/CodeKong/USERPROG1/NoteBook/Java/截屏2020-12-04 14.47.40.png)</p>
+<ol start="4">
+<li></li>
+</ol>
+</blockquote>
+</li>
+<li><p>==提问？为什么HashMap数组的容量要求是2的幂次方？为什么HashMap里面在算hashcode值的时候要进行右移以及异或运算？==</p>
+</li>
+</ul>
+</p>
+      <div class="post-button"><a class="btn" href="/2020/12/02/Java%E5%9F%BA%E7%A1%80/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/11/30/Java%20Web/"></a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-11-30</span>
+      <p><h1 id="学习路线"><a href="#学习路线" class="headerlink" title="学习路线"></a>学习路线</h1><p>java - 爪哇 - 印度尼西亚的爪哇岛</p>
+<h2 id="JavaSE基础部分-0开始"><a href="#JavaSE基础部分-0开始" class="headerlink" title="JavaSE基础部分 - 0开始"></a>JavaSE基础部分 - 0开始</h2><ul>
+<li>java基础语法 - 基本数据类型，方法，数组等</li>
+<li>OO思想(面向对象) - OOP</li>
+<li>高级的API(集合框架)</li>
+<li>进程和多线程</li>
+<li>反射 - 相当于重要 - 不懂框架</li>
+<li>注解</li>
+</ul>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><ul>
+<li><p>关系型数据库 - mysql或者oracle</p>
+</li>
+<li><p>非关系型数据 - redis</p>
+</li>
+</ul>
+<h2 id="持久层技术"><a href="#持久层技术" class="headerlink" title="持久层技术"></a>持久层技术</h2><ul>
+<li>JDBC技术 - 偏底层</li>
+<li>Hibernate框架</li>
+<li>Mybatis框架 - 最流行的</li>
+</ul>
+<h2 id="Servlet-amp-JSP-amp-Ajax"><a href="#Servlet-amp-JSP-amp-Ajax" class="headerlink" title="Servlet&amp;JSP&amp;Ajax"></a>Servlet&amp;JSP&amp;Ajax</h2><ul>
+<li>训练代码</li>
+<li>有助于你自己去学习SpringMVC</li>
+<li>SpringBoot</li>
+</ul>
+<p>前后端分离</p>
+<h2 id="前端技术"><a href="#前端技术" class="headerlink" title="前端技术"></a>前端技术</h2><ul>
+<li><p>html5&amp;css3</p>
+</li>
+<li><p>javascript - 非常重要</p>
+</li>
+<li><p>bootstrap框架(带一带)</p>
+<p>layui框架</p>
+</li>
+<li><p>vuejs reactjs …</p>
+</li>
+</ul>
+<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p>Spring全家桶里面的技术</p>
+<ul>
+<li><p>Spring</p>
+</li>
+<li><p>SpringMVC</p>
+</li>
+<li><p>SpringBoot</p>
+</li>
+<li><p>SpringCloud</p>
+</li>
+<li><p>SpringDataJPA</p>
+</li>
+<li><p>SpringSecurity</p>
+</li>
+</ul>
+<h2 id="拓展的技术"><a href="#拓展的技术" class="headerlink" title="拓展的技术"></a>拓展的技术</h2><ul>
+<li>搜索引擎 - solr - elastcisearch</li>
+<li>容器技术 - docker</li>
+<li>linux基础</li>
+</ul>
+<h2 id="大数据领域"><a href="#大数据领域" class="headerlink" title="大数据领域"></a>大数据领域</h2><h1 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h1><ul>
+<li>Tomcat服务器<ul>
+<li>属于Apache</li>
+<li>识别Servlet,jsp(动态网页)，也能够解析静态资源</li>
+<li>PHP,ASP</li>
+<li>是Apache服务器的拓展</li>
+<li>面试 - 优化操作吗？？？</li>
+<li>中小型公司，并发要求不是特别高的</li>
+</ul>
+</li>
+<li>Apache服务器 - 只能解析静态网页(html) - 静态资源</li>
+<li>Apache+Tomcat配合一起使用的</li>
+</ul>
+<h2 id="tomcat主要的目录结构"><a href="#tomcat主要的目录结构" class="headerlink" title="tomcat主要的目录结构"></a>tomcat主要的目录结构</h2><ul>
+<li><p>lib - 存放jar包</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">servlet-api.jar</span><br><span class="line">jsp-api.jar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>logs - 日志 - 定位问题</p>
+</li>
+<li><p><strong>webapps - 应用程序部署的目录</strong></p>
+</li>
+<li><p>conf - tomcat配置文件所在的目录</p>
+<ul>
+<li><p><strong>server.xml</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">&quot;8080&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;HTTP/1.1&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">connectionTimeout</span>=<span class="string">&quot;20000&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">redirectPort</span>=<span class="string">&quot;8443&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tomcat-users.xml</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h1><p>Servlet - Server Applet - 小服务程序 - </p>
+<p>用java语言编程的服务器端程序</p>
+<h2 id="如何实现自己的Servlet程序"><a href="#如何实现自己的Servlet程序" class="headerlink" title="如何实现自己的Servlet程序"></a>如何实现自己的Servlet程序</h2><ul>
+<li><p>在线API-<a target="_blank" rel="noopener" href="https://docs.oracle.com/javaee/7/api/">https://docs.oracle.com/javaee/7/api/</a></p>
+</li>
+<li><p>所在的API - javax.servlet.Servlet[I]</p>
+</li>
+<li><p>javax.servlet.Servlet接口中定义一些方法，那么我们自己写的servlet</p>
+<p>程序必须要实现这个接口中的<strong>所有</strong>的方法</p>
+<ul>
+<li><p>Jdk8.0之前，接口中只能定义抽象方法，jdk8及其以后的版本，接口中</p>
+<p>是允许定义普通的方法，采取的是@default</p>
+</li>
+</ul>
+</li>
+<li><p>servlet是用java编写的程序，运行在web服务器端</p>
+</li>
+<li><p>servlet可以用来接受和响应来自于web客户端(浏览器)的请求，</p>
+<p>采取的协议是<strong>HTTP协议</strong>(超文本传输协议)</p>
+</li>
+</ul>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><ul>
+<li><p>写一个类去实现javax.servlet.Servlet[I]这个接口</p>
+</li>
+<li><p>写一个类去继承javax.servlet.GenericServlet[C]</p>
+<p>支持通用协议的</p>
+</li>
+<li><p><strong>写一个类去继承 javax.servlet.http.HttpServlet[C]</strong></p>
+<p>仅仅支持http协议的</p>
+</li>
+</ul>
+<h2 id="HelloServlet讲解的过程"><a href="#HelloServlet讲解的过程" class="headerlink" title="HelloServlet讲解的过程"></a>HelloServlet讲解的过程</h2><ul>
+<li><p>编码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tech.aistar.day01;</span><br><span class="line"></span><br><span class="line"><span class="comment">//导包</span></span><br><span class="line"><span class="comment">//除了java.lang不需要手动导入，其余包中的类或者接口，都是需要导报</span></span><br><span class="line"><span class="keyword">import</span> javax.servlet.*;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* IDEA使用 - 快捷键操作</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  快速生成实现的方法 - alt+回车</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">* <span class="doctag">@Description</span> 第一个servlet程序</span></span><br><span class="line"><span class="comment">* </span></span><br><span class="line"><span class="comment">* <span class="doctag">@Author</span> success</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Date</span> 2020/2/18 2:38 PM</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServlet</span> <span class="keyword">implements</span> <span class="title">Servlet</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 初始化方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> servletConfig</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> ServletException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig servletConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">        <span class="comment">//随便在控制台输出一句话 - 主要目的是为了进行测试的</span></span><br><span class="line">        <span class="comment">//看这个servlet程序是否启动成功，是否能够成功被执行</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//快速生成输出语句的快捷键 - sout</span></span><br><span class="line">        System.out.println(<span class="string">&quot;init...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * service方法 - 核心的</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> servletRequest</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> servletResponse</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> ServletException</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;service...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 销毁方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;destory...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 暂时不需要理解 - ServletConfig对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletConfig <span class="title">getServletConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getServletInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>编辑web.xml</p>
+<p>web3.0之前只有xml的配置方式，学完xml的配置方式才能更好理解</p>
+<p>注解开发的方式</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;3.1&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--传统的web3.0之前的配置方式，采用的是xml--&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--每个servlet程序都是需要在xml中进行对应的配置--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--ctrl+/--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--每个servlet标签都对应一个servlet程序，并且每个servlet程序在配置文件中--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--都会拥有一个serlvet-name，但是需要注意的是这个servlet-name在这个xml--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--配置文件中必须要是唯一的，推荐采用servlet程序命名的小驼峰的命名方式，为了--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--提高程序的可读性--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>helloServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--对应的servlet的类的全限定名 = 包名+类名</span></span><br><span class="line"><span class="comment">          检测 = ctrl按着不松+鼠标单击</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>tech.aistar.day01.HelloServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--每个serlvet都有对应的一个映射路径--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置servlet的映射路径--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--此处的serlvet-name一定是和某个servlet标签中的servlet-name是匹配的--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>helloServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--url - 统一资源定位器 - 我们的servlet程序 - HelloServlet程序 - 服务器中的--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--资源--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!----&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--url必须是唯一的，它是这个资源在服务器中的一定标志--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/day01/hello<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>打开浏览器 - 来访问servlet程序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//localhost:8080/servlet-demos/day01/hello</span></span><br><span class="line"></span><br><span class="line">http - 超文本传输协议</span><br><span class="line">localhost - 服务器所在主机的ip地址，服务器是在本地(也可以写成<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>)</span><br><span class="line"><span class="number">8080</span> - tomcat配置的端口号，应用程序和端口号之间是<span class="number">1</span>:<span class="number">1</span>的关系。</span><br><span class="line">/servlet-demos - 项目的上下文路径 - 暂时理解成某个servlet项目的项目名称</span><br><span class="line">/day01/hello - 某个servlet程序的资源路径，某个servlet的唯一标志<span class="number">1</span>⃣️</span><br><span class="line">转<span class="number">2</span>⃣️</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>具体的客户端访问 - 最终执行这个流程</p>
+</li>
+</ul>
+<h2 id="servlet执行流程的细节"><a href="#servlet执行流程的细节" class="headerlink" title="servlet执行流程的细节"></a>servlet执行流程的细节</h2><ul>
+<li><p>当启动容器的时候(tomcat),会把你的web.xml文件加载到内存中</p>
+</li>
+<li><p>2⃣️接着分析出/day01/hello，到内存中的web.xml文件中去查找</p>
+<p>是否存在某个servlet-mapping标签下的某个url-pattern和请求的地址拦中的</p>
+<p>/day01/hello是完全匹配的。</p>
+</li>
+<li><p>若找不到，则抛出http状态码404</p>
+<p>否则继续找到当前servlet-mapping标签下的servlet-name的值</p>
+<p>这个值helloServlet</p>
+</li>
+<li><p>拿着helloServlet继续寻找web.xml中所有的servlet标签，看是否存在</p>
+<p> 某个servlet标签下的servlet-name标签的值也是helloServlet</p>
+</li>
+<li><p>找到对应的servlet标签之后，会取出当前servlet标签下的servlet-class</p>
+<p>标签中的内容 - HelloServlet(要访问的servlet程序)的类的全限定名</p>
+</li>
+<li><p>底层利用反射的技术来创建这个servlet的实例(对象)</p>
+</li>
+</ul>
+<h1 id="web3-0启用注解的开发方式"><a href="#web3-0启用注解的开发方式" class="headerlink" title="web3.0启用注解的开发方式"></a>web3.0启用注解的开发方式</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet(urlPatterns = &quot;/day01/anno&quot;)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a>Servlet的生命周期</h1><p>补充 - 类是抽象的，对象才是具体的。比如水果就是类，苹果就是对象。</p>
+<p>类是构建对象的模板，对象是类的具体的实例化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id name      age</span><br><span class="line">1  success   23</span><br><span class="line">2  静静奶奶    xx</span><br></pre></td></tr></table></figure>
+
+
+
+<p>储备知识点:JavaSE中学习的设计模式 - 单例模式 - 23种设计模式</p>
+<p><strong>单例设计模式作用</strong> - 保证在整个应用程序运行期间，某个类的具体的实例(对象)在JVM中只存在一个。</p>
+<p>哪些类应该要设计成单例 - 这个类从创建到销毁比较占用系统资源 - 昂贵的资源</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">保证在整个应用程序运行期间 - “家”</span><br><span class="line"></span><br><span class="line">王多鱼 - 有钱 - “游泳池” - “连接池”</span><br><span class="line"></span><br><span class="line">没钱的 - 各种洗脸盆和各种洗脚盆</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>init方法</p>
+<ul>
+<li><p>思考 - servlet对象是什么时候创建的？</p>
+</li>
+<li><p>默认是当从客户端<strong>第一次</strong>请求某个servlet的时候，那么容器会帮助我们实例化出</p>
+<p>这个servlet类的实例(对象) - HelloServlet类的对象</p>
+</li>
+<li><p>再利用这个实例化出来的对象来调用init方法 - 执行一些初始化的操作</p>
+</li>
+<li><p>比如加载一些资源的配置文件 - 放入到这个init - 初始化的工作</p>
+</li>
+<li><p>得出一个结论 - Servlet是属于单例的</p>
+</li>
+</ul>
+</li>
+<li><p>service方法 - 无论是何种请求，都会直接进入到这个service方法中</p>
+<p>如果我们自定义的类中存在service方法，那么就会执行我们重写的service方法</p>
+<p>如果没有重写这个service方法，那么就会去寻找父类中的service方法(HttpServlet)</p>
+<p><strong>底层的代码大致表达意思就是根据请求的方式来决定调用doGet还是doPost</strong></p>
+</li>
+<li><p>destroy方法 </p>
+<ul>
+<li>从容器中卸载web应用程序的时候</li>
+<li>关闭当前的web项目的时候</li>
+</ul>
+</li>
+</ul>
+<p>作业</p>
+<p>1 - servlet的执行流程 - 复述一遍</p>
+<p>2 - service和destroy - 通过自己查一遍 - 解答题 -word </p>
+<h1 id="请求的方式"><a href="#请求的方式" class="headerlink" title="请求的方式"></a>请求的方式</h1><ul>
+<li><p><strong>Get请求</strong></p>
+<ul>
+<li>通过浏览器访问 - 地址栏中输入请求的url</li>
+<li>可以通过设置form表达式的method属性的设置 - 设置成get</li>
+</ul>
+</li>
+<li><p><strong>Post请求</strong></p>
+<ul>
+<li>通过form表单中的method属性的设置 - 设置成post即可</li>
+</ul>
+</li>
+<li><p>Delete请求</p>
+</li>
+<li><p>Put请求</p>
+</li>
+</ul>
+<h2 id="Post请求和Get请求的一个区别"><a href="#Post请求和Get请求的一个区别" class="headerlink" title="Post请求和Get请求的一个区别"></a>Post请求和Get请求的一个区别</h2><ul>
+<li><p>Get请求 - 由doGet接受请求</p>
+<ul>
+<li><p>客户端数据传送的方式</p>
+<p>表达式中的数据是直接暴漏在URl地址后面，所有的get方式的提交都是在HTTP没有消息体的</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/servlet-demos/day02/http?username=admin&amp;pwd=123">http://localhost:8080/servlet-demos/day02/http?username=admin&amp;pwd=123</a></p>
+</li>
+<li><p>传输的数据量</p>
+<p>理论上数据量的长度是有限制的，但是一般不会超过2kb.因为是参数传递，并且是在地址</p>
+<p>栏中，所以数据是有限制的</p>
+</li>
+<li><p>安全性 - 不安全的</p>
+</li>
+</ul>
+</li>
+<li><p>Post请求 - 由doPost接受请求</p>
+<p>二进制数据的提交（图片，视频等）</p>
+<ul>
+<li><p>客户端数据传送的方式</p>
+<p>表单数据存放在HTTP协议的消息体中，是以实体的方式传送到服务器的</p>
+</li>
+<li><p>传输的数据量</p>
+<p>适合大规模的数据传送，因为是以实体的方式进行传送的</p>
+</li>
+<li><p>安全性 - 相对安全</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Get请求和Post请求解决中文乱码的一个问题"><a href="#Get请求和Post请求解决中文乱码的一个问题" class="headerlink" title="Get请求和Post请求解决中文乱码的一个问题"></a>Get请求和Post请求解决中文乱码的一个问题</h3><ul>
+<li><p>Get请求</p>
+<p>找到/Users/admin/Documents/success/teaching/soft/apache-tomcat-8.5.47/conf/server.xml</p>
+<p>第69行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector port=<span class="string">&quot;8080&quot;</span> protocol=<span class="string">&quot;HTTP/1.1&quot;</span></span><br><span class="line">  connectionTimeout=<span class="string">&quot;20000&quot;</span></span><br><span class="line">  redirectPort=<span class="string">&quot;8443&quot;</span> URIEncoding=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Post请求</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//处理post请求中文乱码的问题</span></span><br><span class="line">req.setCharacterEncoding(<span class="string">&quot;UTF-8&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h1 id="HttpServletRequest和HttpServletResponse"><a href="#HttpServletRequest和HttpServletResponse" class="headerlink" title="HttpServletRequest和HttpServletResponse"></a>HttpServletRequest和HttpServletResponse</h1><h2 id="HttServletRequest对象"><a href="#HttServletRequest对象" class="headerlink" title="HttServletRequest对象"></a>HttServletRequest对象</h2><p>所有的请求的参数都被封装在这个对象中</p>
+<ul>
+<li><p>javax.servlet.http.HttpServletRequest</p>
+<ul>
+<li><p>get请求的发送方式</p>
+<ul>
+<li><p>地址栏中直接采用?和&amp;来拼接请求的参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:<span class="number">8080</span>/servlet-demos/day02/param?uname=tom&amp;pwd=<span class="number">123</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>超链接发送 - aistar.jsp</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;/servlet-demos/day02/param?uname=tom&amp;pwd=123&quot;&gt;get请求&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>form表单的method设置成get</p>
+<p>每个表单控件的name属性的值就是发送的这个参数的变量名称</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">&quot;/servlet-demos/day02/param&quot;</span> method=<span class="string">&quot;get&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">  &lt;%--req.getParameter(<span class="string">&quot;uname&quot;</span>);--%&gt;</span><br><span class="line">  &lt;input name=<span class="string">&quot;uname&quot;</span>&gt;</span><br><span class="line">  &lt;input name=<span class="string">&quot;pwd&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">  &lt;%--提交按钮--%&gt;</span><br><span class="line">  &lt;input type=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;login&quot;</span>&gt;</span><br><span class="line">  &lt;/form&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>如何获取参数</p>
+<p>根据请求的参数的名称来获取请求的参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getParameter</span><span class="params">(String params)</span></span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="关于编码"><a href="#关于编码" class="headerlink" title="关于编码"></a>关于编码</h1><p>java源代码(包含所有的配置文件) - tomcat - mysql -&gt; 编码必须要统一 - 采用UTF-8</p>
+<h1 id="项目任务"><a href="#项目任务" class="headerlink" title="项目任务"></a>项目任务</h1><p>MVC - Model - View - Controller - 思想</p>
+<p>前后端分离 - MVVM思想(vuejs)</p>
+<ul>
+<li><p><strong>在jsp里面 - login.jsp - 推荐bootstrap(bootstrap菜鸟教程)</strong></p>
+<ul>
+<li>可以向后台发送表单中的数据</li>
+<li>后台接受这个数据</li>
+</ul>
+</li>
+<li><p>实体类 - User - id username password status(0 - 普通人员 1 - 超级管理员)</p>
+<p>自行拓展</p>
+</li>
+<li><p>dao接口和实现</p>
+<p>dao - data access object - 对象访问层 - 直接和数据库进行交互的</p>
+</li>
+<li><p>service层 - 业务逻辑层 - 调用dao - 不和数据库进行交互的，只是负责处理数据</p>
+</li>
+<li><p>controller层 - 控制层(servlet)  - 接受请求，处理请求，响应</p>
+</li>
+<li><p>view层 - 视图层 - 展示需要展示的数据，以及提交需要提交的数据</p>
+</li>
+<li><p>工具包 - util - jdbc封装的代码</p>
+</li>
+<li><p>单元测试(dao层，service层)</p>
+</li>
+<li><p>过滤器以及监听器</p>
+</li>
+</ul>
+<p>“没有我的时候，你要好好照顾好自己” - 百度</p>
+<p><strong>知乎</strong></p>
+<p>stackoverflow</p>
+<p><strong>思否</strong></p>
+<p>谷粉搜搜 - 九尾搜搜</p>
+<p>优秀的源码 - <strong>github</strong>或者码云</p>
+<h1 id="转发和重定向"><a href="#转发和重定向" class="headerlink" title="转发和重定向"></a>转发和重定向</h1><ul>
+<li><p>转发</p>
+<ul>
+<li><p>观察地址栏 -  <a target="_blank" rel="noopener" href="http://localhost:8080/servlet-demos/day03/forward">http://localhost:8080/servlet-demos/day03/forward</a></p>
+<p>请求的url就是一开始的url，并没有发生任何改变，只是发送了一次请求</p>
+</li>
+<li><p>共享request作用域中的数据</p>
+</li>
+<li><p>转发是一次请求</p>
+</li>
+<li><p>转发的跳转 - 发生在服务器端 - 服务器端端跳转</p>
+</li>
+</ul>
+</li>
+<li><p>重定向</p>
+<ul>
+<li><p>观察地址栏 - 输入的是<a target="_blank" rel="noopener" href="http://localhost:8080/servlet-demos/day03/forward">http://localhost:8080/servlet-demos/day03/forward</a></p>
+<p>但是地址栏的url发生了改变,变成了</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/servlet-demos/girl.jsp">http://localhost:8080/servlet-demos/girl.jsp</a></p>
+</li>
+<li><p>不会共享request作用域中的数据</p>
+</li>
+<li><p>重定向是多次请求</p>
+</li>
+<li><p>重定向的跳转 - 发生在客户端 - 永远是从客户端再次发送求</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="WEB-INF"><a href="#WEB-INF" class="headerlink" title="WEB-INF"></a>WEB-INF</h2><p>这个目录是一个安全级别比较高的目录，这个目录中的资源只能通过转发的方式</p>
+<p>转发过去，直接访问(由客户端发送的请求是到达不了)，真实开发中，jsp文件是</p>
+<p>存在这个WEB-INF目录中</p>
+<h2 id="转发和重定向应用场景"><a href="#转发和重定向应用场景" class="headerlink" title="转发和重定向应用场景"></a>转发和重定向应用场景</h2><p>思考:什么时候该使用转发，什么该使用重定向</p>
+<h2 id="转发包含"><a href="#转发包含" class="headerlink" title="转发包含"></a>转发包含</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tech.aistar.day03;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* </span></span><br><span class="line"><span class="comment">* <span class="doctag">@Description</span> </span></span><br><span class="line"><span class="comment">* </span></span><br><span class="line"><span class="comment">* <span class="doctag">@Author</span> success</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Date</span> 2020/2/20 3:14 PM</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@WebServlet(urlPatterns = &quot;/day03/login&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginAction</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//演示转发包含 - 使用场景很少</span></span><br><span class="line"></span><br><span class="line">        resp.setContentType(<span class="string">&quot;text/html;charset=utf-8&quot;</span>);</span><br><span class="line">        PrintWriter out = resp.getWriter();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//网页中输出</span></span><br><span class="line">        out.println(<span class="string">&quot;include...&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//转发</span></span><br><span class="line">        <span class="comment">//当前servlet中文档输出流的内容是不会展示到网页中的</span></span><br><span class="line">        <span class="comment">//req.getRequestDispatcher(&quot;/WEB-INF/login.jsp&quot;).forward(req,resp);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//转发包含</span></span><br><span class="line">        <span class="comment">//当前servlet中文档输出流的内容和login.jsp的内容都会输出到同一个网页中</span></span><br><span class="line">        req.getRequestDispatcher(<span class="string">&quot;/WEB-INF/login.jsp&quot;</span>).include(req,resp);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//resp.sendRedirect(&quot;/servlet-demos/WEB-INF/login.jsp&quot;);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Servlet三大作用域"><a href="#Servlet三大作用域" class="headerlink" title="Servlet三大作用域"></a>Servlet三大作用域</h1><p>作用域 - 数据存储的容器</p>
+<ul>
+<li><p>request作用域 - 保存在服务器端</p>
+<p>生命周期 - 一次请求，一次响应，发生在一次请求当中</p>
+<p>特地强调一定是从客户端-&gt;服务器的跳转</p>
+</li>
+<li><p>session作用域 - 保存在服务器端</p>
+<ul>
+<li>生命周期 - 一次会话期间，从浏览器打开 - 浏览器关闭</li>
+<li>看JavaEE官方API - Cookie - <strong>作用:cookie是用来管理我们的session的</strong></li>
+<li>笔试题:Session会话跟踪机制 - (采用cookie来实现的)</li>
+<li>简单了解一下cookie - 存放一下少量大数据的 - 保存在客户端(浏览器)</li>
+</ul>
+</li>
+<li><p>ServletContext(application作用域)</p>
+</li>
+</ul>
+<h1 id="关于url-patterns的路径匹配方式"><a href="#关于url-patterns的路径匹配方式" class="headerlink" title="关于url-patterns的路径匹配方式"></a>关于url-patterns的路径匹配方式</h1><ul>
+<li><p>精确匹配</p>
+</li>
+<li><p><strong>模糊匹配</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet(urlPatterns = &quot;/day03/*&quot;)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后缀匹配</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet(urlPatterns = &quot;*.do&quot;)</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>优先级 - 精确匹配&gt;模糊匹配&gt;后缀匹配</strong></p>
+<h1 id="Session的会话跟踪机制"><a href="#Session的会话跟踪机制" class="headerlink" title="Session的会话跟踪机制"></a>Session的会话跟踪机制</h1><p>用cookie来进行管理的</p>
+<ul>
+<li><p><strong>session空间在哪里 - Web容器中</strong></p>
+</li>
+<li><p>session空间的创建的时机什么时候？</p>
+<ul>
+<li><p><strong>稍微了解 - 当访问到jsp的时候，page属性session = true</strong></p>
+</li>
+<li><p>如果没有jsp，或者session=false的时候，那么应该是当执行到某个servlet</p>
+<p>当时候，并且这个servlet中出现了如下代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session = req.getSession();</span><br></pre></td></tr></table></figure>
+
+<p>此行代码的意思是:如果是第一次执行的话，那么Web容器就会为这个客户端在服务器内存中</p>
+<p>开辟一块区域 - session空间。如果程序中再次出现这行代码，它是不再会为同一个客户端创建</p>
+<p>空间的(前提是cookie清除) - 第一次以后再次执行的时候，就代表获取该对象。</p>
+</li>
+<li><p>第一次或者cookie删除了再访问</p>
+</li>
+</ul>
+</li>
+<li><p>session空间创建了几个？</p>
+<p>客户端有关系</p>
+</li>
+</ul>
+<h2 id="Session空间"><a href="#Session空间" class="headerlink" title="Session空间"></a>Session空间</h2><p>每个session空间都拥有一个唯一的sessionId</p>
+<p>客户端1-&gt; data存储到session-“username”,”tom” -&gt; taobao</p>
+<p>客户端2 -&gt;data存储到session “username”,”jack “-&gt; taobao</p>
+<p>思考 - 为什么第二次再次访问的时候，不同的客户端都会自动进入自己的session空间</p>
+<p>web容器会为每个客户端都分配session空间的。</p>
+<h1 id="Http协议"><a href="#Http协议" class="headerlink" title="Http协议"></a>Http协议</h1><p>无状态的协议 - server是不能够判别出多个请求是来自于同一个客户端的。</p>
+<h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><ul>
+<li><strong>有基础的 - 登陆功能 -&gt; 首页(任意对象的数据 - Book - Student)</strong></li>
+<li><strong>转发和重定向</strong> - 图示和描述</li>
+<li><strong>拓展 - session会话跟踪机制 - 预习</strong> - 描述 - 截图给我</li>
+</ul>
+<h1 id="记住密码功能"><a href="#记住密码功能" class="headerlink" title="记住密码功能"></a>记住密码功能</h1><h2 id="Cookie实现的"><a href="#Cookie实现的" class="headerlink" title="Cookie实现的"></a>Cookie实现的</h2><ul>
+<li><p>有可能浏览器禁用了cookie</p>
+</li>
+<li><p>不适合大量数据的存储</p>
+</li>
+<li><p>由每个对服务器的请求来进行传递，导致cookie速度很慢，</p>
+<p>效率高</p>
+</li>
+</ul>
+<h2 id="H5-Web存储"><a href="#H5-Web存储" class="headerlink" title="H5 - Web存储"></a>H5 - Web存储</h2><ul>
+<li>缺陷 - 不可以设置有效期</li>
+<li>localStorage - 没有时间限制的数据存储</li>
+<li>sessionStorage - 针对一个session的数据存储</li>
+<li>缺陷 - 服务器端没有提供相关的API，只能通过js代码来操作</li>
+</ul>
+<h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><ul>
+<li><p>cookie可以用来保存少量的数据，并且是通过服务器端端servlet程序把这个cookie发送到web浏览器(客户端)</p>
+<p>cookie是保存在客户端的</p>
+</li>
+<li><p>客户端每次向服务器端发送请求的时候，通过请求头信息将这个cookie一起发送</p>
+<p>给server。</p>
+</li>
+<li><p>一个cookie的值是用来唯一标志一个客户端的，所以cookie通常是可以用来管理session</p>
+</li>
+<li><p>cookie拥有一个<strong>name</strong>，一个单个<strong>value</strong>以及一些可选的属性(比如有效期)</p>
+</li>
+<li><p>我们可以通过 <a target="_blank" rel="noopener" href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html#addCookie-javax.servlet.http.Cookie-"><code>HttpServletResponse.addCookie(javax.servlet.http.Cookie)</code></a> method</p>
+<p>通过http的响应头信息将cookie发送到浏览器端</p>
+</li>
+<li><p>每个客户只能为每个web服务器在本地保存20个cookie,总共可以保存300个，并且每个cookie</p>
+<p>的大小不能多于4KB</p>
+</li>
+<li><p>当客户端将cookie发送到server的时候，cookie可以通过<a target="_blank" rel="noopener" href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html#getCookies--"><code>HttpServletRequest.getCookies()</code></a> method</p>
+<pre><code> 来被检索       </code></pre>
+</li>
+</ul>
+<h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><p>对所有的web资源引用前的一层“过滤”</p>
+<pre><code>                  url</code></pre>
+<p>web浏览器     -&gt;    web服务器  -&gt;  过滤器  -&gt;【 web资源(jsp,servlet,html)】</p>
+<pre><code>                   &lt;-                        &lt;-                 &lt;-                      </code></pre>
+<ul>
+<li>拦截器请求</li>
+<li>在响应客户端之前，提前做一些操作</li>
+</ul>
+<p>拓展：Filter底层采取的设计模式过滤器模式(<strong>责任链模式</strong>)</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
+<li>简单的基于URL级别的权限访问控制</li>
+<li>过滤一些敏感词汇</li>
+<li>压缩响应信息等</li>
+</ul>
+<h1 id="监听器"><a href="#监听器" class="headerlink" title="监听器"></a>监听器</h1><p>JavaEE包括十三种核心技术，主要的servlet和jsp技术，其中servlet规范包括三个技术点</p>
+<p>servlet&amp;listener&amp;filter</p>
+<h2 id="什么是监听器"><a href="#什么是监听器" class="headerlink" title="什么是监听器"></a>什么是监听器</h2><p>监听器就是监听某个对象的状态变化的组件</p>
+<p>相关的概念</p>
+<ul>
+<li><p>事件源:被监听的对象</p>
+<p>在servlet中-三个作用域request,session,<strong>ServletContext</strong></p>
+</li>
+<li><p>监听器:监听事件源对象，事件源对象的状态的改变都会触发监听器</p>
+</li>
+<li><p>注册监听器：将监听器和事件源进行绑定</p>
+</li>
+</ul>
+<h2 id="监听器有哪些"><a href="#监听器有哪些" class="headerlink" title="监听器有哪些"></a>监听器有哪些</h2><ul>
+<li><p>第一大类:按照被监听的对象划分:request,session,servletContext</p>
+</li>
+<li><p>第二类:按照监听的内容，监听域对象的创建与销毁，监听域对象的属性的</p>
+<p>变化</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ServletContext域</th>
+<th>HttpSession域</th>
+<th>ServletRequest域</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>域对象的创建与销毁</td>
+<td>ServletContextListener</td>
+<td>HttpSessionListner</td>
+<td>ServletRequestListner</td>
+</tr>
+<tr>
+<td>域对象内的属性的变化</td>
+<td>ServletContextAtrributeListner</td>
+<td>HttpSessionAtrributeListner</td>
+<td>ServletRequestAtrributeListner</td>
+</tr>
+</tbody></table>
+<h1 id="文件上传-web3-0"><a href="#文件上传-web3-0" class="headerlink" title="文件上传 - web3.0"></a>文件上传 - web3.0</h1><h1 id="作业-1"><a href="#作业-1" class="headerlink" title="作业"></a>作业</h1><ul>
+<li>Cookie的方式 - 记住密码</li>
+</ul>
+</p>
+      <div class="post-button"><a class="btn" href="/2020/11/30/Java%20Web/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
     </div>
   </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-first" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/12/06/first/" class="article-date">
-  <time datetime="2020-12-06T11:40:42.000Z" itemprop="datePublished">2020-12-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/06/first/">first</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/11/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"></a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-11-30</span>
+      <p><h1 id="1-操作系统引论"><a href="#1-操作系统引论" class="headerlink" title="1.操作系统引论"></a>1.操作系统引论</h1><h2 id="1-1操作系统的目标和作用"><a href="#1-1操作系统的目标和作用" class="headerlink" title="1.1操作系统的目标和作用"></a>1.1操作系统的目标和作用</h2><h3 id="1-1-1操作系统的目标"><a href="#1-1-1操作系统的目标" class="headerlink" title="1.1.1操作系统的目标"></a>1.1.1操作系统的目标</h3><ul>
+<li>方便性</li>
+<li>有效性</li>
+<li>可扩充性</li>
+<li>开放性</li>
+</ul>
+<h3 id="1-1-2操作系统的作用"><a href="#1-1-2操作系统的作用" class="headerlink" title="1.1.2操作系统的作用"></a>1.1.2操作系统的作用</h3><ul>
+<li>OS作为用户与计算机硬件系统之间的接口<ul>
+<li>接口的含义：OS处于用户与计算机硬件系统之间，用户通过OS来使用计算机系统。用户通过命令方式，系统调用方式，和图标-窗口方式来实现与操作系统的通信，并取得它的服务。</li>
+</ul>
+</li>
+<li>OS作为计算机系统资源的管理者<ul>
+<li>计算机的资源可分为：处理机，存储器，I/O设备及文件（数据和程序）。</li>
+<li>处理机管理是用于分配和控制处理机</li>
+<li>存储器管理是主要负责内存的分配与回收</li>
+<li>I/O设备管理是负责I/O设备的分配（回收）与操纵</li>
+<li>文件管理是用于实现对文件的存取，共享和保护</li>
+</ul>
+</li>
+<li>OS实现对计算机资源的抽象<ul>
+<li> 如果是没有OS计算机，用户就要对物理接口的实现细节有充分的了解，这不现实。通过OS，用户无需关心OS是如何具体实现的。</li>
+<li> 为了方便用户使用文件系统，又可在第一层软件（I/O管理软件）上再覆盖一层用于文件管理的软件。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-1-3推动操作系统发展的主要动力"><a href="#1-1-3推动操作系统发展的主要动力" class="headerlink" title="1.1.3推动操作系统发展的主要动力"></a>1.1.3推动操作系统发展的主要动力</h3><ul>
+<li> 不断提高计算机资源利用率</li>
+<li> 方便用户</li>
+<li> 器件的不断更新换代</li>
+<li> 计算机体系结构的不断发展</li>
+<li> 不断提出习你的应用需求</li>
+</ul>
+<h2 id="1-2操作系统的发展过程"><a href="#1-2操作系统的发展过程" class="headerlink" title="1.2操作系统的发展过程"></a>1.2操作系统的发展过程</h2><h3 id="1-2-1未配置操作系统的计算机"><a href="#1-2-1未配置操作系统的计算机" class="headerlink" title="1.2.1未配置操作系统的计算机"></a>1.2.1未配置操作系统的计算机</h3><ul>
+<li>人工操作方式<ul>
+<li>程序员将事先穿孔的纸带装入纸带输入机，再启动将纸带的信息读取计算机，再启动计算机运行。当程序全部运行完毕后，才允许下一个用户上机。</li>
+<li>严重降低计算机资源利用率</li>
+</ul>
+</li>
+<li>脱机输入/输出（Off-Line I/O)方式<ul>
+<li>该技术是事先将装有用户程序和数据的纸带装入输入机，在另外一台外围机的控制下，把纸带上的数据输入到磁带上。当CPU需要这些程序和数据时，再从磁盘上高速地调入内存。</li>
+<li>当CPU需要输出时，先由CPU把数据直接从内存高速地输送到磁盘上，然后在另一台外围机的控制下，再将纸带上的结果通过相应的输出设备输出。</li>
+<li>数据的输入输出都是在外围机的控制下完成的。</li>
+<li>把主机直接控制下进行输入输出的方式成为联机输入输出方式。</li>
+<li>优点：减少CPU空闲时间 ， 提高了I/O速度。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-2单道批处理系统"><a href="#1-2-2单道批处理系统" class="headerlink" title="1.2.2单道批处理系统"></a>1.2.2单道批处理系统</h3><ul>
+<li>处理过程<ul>
+<li>如图1-1</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>系统中的资源得不到充分的利用，在内存中仅有一道程序，程序发出I/O请求后，CPU处于等待状态，必须要I/O完成后才继续运行。又因为I/O设备的低速性，更使CPU利用率显著降低。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-3多道批处理系统"><a href="#1-2-3多道批处理系统" class="headerlink" title="1.2.3多道批处理系统"></a>1.2.3多道批处理系统</h3><ul>
+<li>目的：进一步提高资源的利用率和系统吞吐量<ul>
+<li> 用户提交的作业先存放在外存上，排成队列，成为“后备队列”。然后作业调度程序按一定的算法，从后备队列选出若干个作业调入内存，让他们共享CPU和系统中的资源。由于内存同时存在若干道程序，可以在运行程序A的同时，利用其I/O操作而暂停的CPU空挡时间，再调度另一道程序B运行。这样多道程序交替运行，便可以保持CPU处于忙碌状态。</li>
+<li> 如图1-2</li>
+</ul>
+</li>
+<li>优缺点<ul>
+<li>资源利用率高</li>
+<li>系统吞吐量大：CPU保持忙碌，系统开销小。</li>
+<li>平均周转时间长：作业要排队一次进行处理。</li>
+<li>无交互能力：用户把作业交给系统，只有全部完成后，用户才能再交互。</li>
+</ul>
+</li>
+<li>需要解决的问题<ul>
+<li>处理机争用问题</li>
+<li>内存分配和保护问题</li>
+<li>I/O设备分配问题</li>
+<li>文件的组织和管理问题</li>
+<li>作业管理问题</li>
+<li>用户与系统的接口问题</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-4分时系统（Time-Sharing-System）"><a href="#1-2-4分时系统（Time-Sharing-System）" class="headerlink" title="1.2.4分时系统（Time Sharing System）"></a>1.2.4分时系统（Time Sharing System）</h3><ul>
+<li>分时系统的引入<ul>
+<li>主要动力：满足用户对人–机交互的需求</li>
+<li>人–机交互</li>
+<li>共享主机</li>
+</ul>
+</li>
+<li>关键问题<ul>
+<li>及时接收</li>
+<li>及时处理</li>
+</ul>
+</li>
+<li>分时系统的特征<ul>
+<li>多路性：多台终端连接1台主机</li>
+<li>独立性</li>
+<li>及时性</li>
+<li>交互性</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-5实时系统（Real-Time-System）"><a href="#1-2-5实时系统（Real-Time-System）" class="headerlink" title="1.2.5实时系统（Real Time System）"></a>1.2.5实时系统（Real Time System）</h3><ul>
+<li>实时系统的类型<ul>
+<li>工业（武器）控制系统</li>
+<li>信息查询系统</li>
+<li>多媒体系统</li>
+<li>嵌入式系统</li>
+</ul>
+</li>
+<li>实时任务的类型  P11<ul>
+<li>周期性实时任务和非周期性实时任务</li>
+<li>硬实时任务和软实时任务</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-3-操作系统的基本特性"><a href="#1-3-操作系统的基本特性" class="headerlink" title="1.3 操作系统的基本特性"></a>1.3 操作系统的基本特性</h2><h3 id="1-3-1-并发"><a href="#1-3-1-并发" class="headerlink" title="1.3.1 并发"></a>1.3.1 并发</h3><ul>
+<li>因为有并发，才能使OS能有效地提高系统中的资源利用率，增加系统的吞吐量。</li>
+<li>并行和并发<ul>
+<li>并行性是指两个或者多个事件在同一时刻发生。</li>
+<li>并发性是指两个或者多个事件在同一时间间隔内发生。</li>
+</ul>
+</li>
+<li>引入进程<ul>
+<li>在系统中能独立运行并作为资源分配的基本单位。</li>
+<li>多个进程之间可以并发执行和交换信息。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-3-2-共享（Sharing）"><a href="#1-3-2-共享（Sharing）" class="headerlink" title="1.3.2 共享（Sharing）"></a>1.3.2 共享（Sharing）</h3><ul>
+<li>OS环境下的资源共享称为资源复用，是指系统中的资源可供内存中多个并发执行的进程共同使用。</li>
+<li>互斥共享方式<ul>
+<li>打印机、磁带机等等虽然可以提供给多个进程使用，但应规定在一定时间内，只允许一个进程访问该资源。</li>
+<li>进程A要访问资源，应先提出请求，若资源空闲，系统便可将之分配给请求进程A使用。如果还有进程要使用该资源，只要A未完成就必须等待。仅当A进程访问完并释放系统资源后，才允许另一进程对该资源进行访问。</li>
+</ul>
+</li>
+<li>同时访问方式<ul>
+<li>一段时间内由多个进程“同时”对他们进行访问。</li>
+<li>同时：在单处理机环境下是宏观意义上，在微观上，这些进程对资源的访问时交替进行的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-3-3-虚拟（Virtual）"><a href="#1-3-3-虚拟（Virtual）" class="headerlink" title="1.3.3 虚拟（Virtual）"></a>1.3.3 虚拟（Virtual）</h3><ul>
+<li>通过某种技术将一个物理实体变为若干个逻辑上的对应物的功能称为“虚拟”。</li>
+<li>时分复用技术<ul>
+<li>虚拟处理机技术</li>
+<li>虚拟处理设备</li>
+</ul>
+</li>
+<li>空分复用技术</li>
+</ul>
+<h3 id="1-3-4-异步（Asynchronism）"><a href="#1-3-4-异步（Asynchronism）" class="headerlink" title="1.3.4 异步（Asynchronism）"></a>1.3.4 异步（Asynchronism）</h3></p>
+      <div class="post-button"><a class="btn" href="/2020/11/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/06/first/" data-id="ckid32d1z0001xwag0zvkfqv5" class="article-share-link">Share</a>
-      
-      
-    </footer>
   </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/12/06/hello-world/" class="article-date">
-  <time datetime="2020-12-06T11:35:01.076Z" itemprop="datePublished">2020-12-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/06/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/06/hello-world/" data-id="ckid32d1v0000xwagdaqu19us" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JVM" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/30/JVM/" class="article-date">
-  <time datetime="2020-11-30T03:02:42.477Z" itemprop="datePublished">2020-11-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Java虚拟机在执行java程序时会把它所管理的内存会分为若干个不同的数据区域，不同的区域在内存不足时会抛出不同的异常。"><a href="#Java虚拟机在执行java程序时会把它所管理的内存会分为若干个不同的数据区域，不同的区域在内存不足时会抛出不同的异常。" class="headerlink" title="Java虚拟机在执行java程序时会把它所管理的内存会分为若干个不同的数据区域，不同的区域在内存不足时会抛出不同的异常。"></a>Java虚拟机在执行java程序时会把它所管理的内存会分为若干个不同的数据区域，不同的区域在内存不足时会抛出不同的异常。</h3><h2 id="1-运行时数据区域的划分"><a href="#1-运行时数据区域的划分" class="headerlink" title="1 运行时数据区域的划分"></a>1 运行时数据区域的划分</h2><img src="/Users/CodeKong/USERPROG1/NoteBook/JVM/截屏2020-12-02 11.13.38.png" alt="截屏2020-12-02 11.13.38" style="zoom: 33%;" />
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/11/30/JVM/"></a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-11-30</span>
+      <p><h3 id="Java虚拟机在执行java程序时会把它所管理的内存会分为若干个不同的数据区域，不同的区域在内存不足时会抛出不同的异常。"><a href="#Java虚拟机在执行java程序时会把它所管理的内存会分为若干个不同的数据区域，不同的区域在内存不足时会抛出不同的异常。" class="headerlink" title="Java虚拟机在执行java程序时会把它所管理的内存会分为若干个不同的数据区域，不同的区域在内存不足时会抛出不同的异常。"></a>Java虚拟机在执行java程序时会把它所管理的内存会分为若干个不同的数据区域，不同的区域在内存不足时会抛出不同的异常。</h3><h2 id="1-运行时数据区域的划分"><a href="#1-运行时数据区域的划分" class="headerlink" title="1 运行时数据区域的划分"></a>1 运行时数据区域的划分</h2><img src="/Users/CodeKong/USERPROG1/NoteBook/JVM/截屏2020-12-02 11.13.38.png" alt="截屏2020-12-02 11.13.38" style="zoom: 33%;" />
 
 
 
@@ -273,106 +928,451 @@
 <li> 方法区用于存放Class的相关信息：类名，访问修饰符，常量池，字段描述，方法描述。</li>
 <li>  方法区溢出（大量JSP或者动态产生JSP文件的应用，基于OSGI的应用（即使是同一个类文件，被不同的加载器加载也会视为不同的类））也是一种常见的内存溢出异常，一个类要被GC回收掉，判断条件比较苛刻。在经常动态生成大量Class的应用中，需要注意类的回收</li>
 </ul>
-<h3 id="2-4-4-本机内存直接溢出"><a href="#2-4-4-本机内存直接溢出" class="headerlink" title="2.4.4 本机内存直接溢出"></a>2.4.4 本机内存直接溢出</h3><h4 id="DirectMemory容量可以通过-XX：MaxDirectMemorySize指定，默认与-Xmx一样"><a href="#DirectMemory容量可以通过-XX：MaxDirectMemorySize指定，默认与-Xmx一样" class="headerlink" title="DirectMemory容量可以通过-XX：MaxDirectMemorySize指定，默认与-Xmx一样"></a>DirectMemory容量可以通过-XX：MaxDirectMemorySize指定，默认与-Xmx一样</h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/30/JVM/" data-id="ckid3pd3l000039ag8ovp61xa" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+<h3 id="2-4-4-本机内存直接溢出"><a href="#2-4-4-本机内存直接溢出" class="headerlink" title="2.4.4 本机内存直接溢出"></a>2.4.4 本机内存直接溢出</h3><h4 id="DirectMemory容量可以通过-XX：MaxDirectMemorySize指定，默认与-Xmx一样"><a href="#DirectMemory容量可以通过-XX：MaxDirectMemorySize指定，默认与-Xmx一样" class="headerlink" title="DirectMemory容量可以通过-XX：MaxDirectMemorySize指定，默认与-Xmx一样"></a>DirectMemory容量可以通过-XX：MaxDirectMemorySize指定，默认与-Xmx一样</h4></p>
+      <div class="post-button"><a class="btn" href="/2020/11/30/JVM/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
     </div>
   </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/11/27/%E4%BA%91%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"></a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-11-27</span>
+      <p><h2 id="1-什么是云计算"><a href="#1-什么是云计算" class="headerlink" title="1.什么是云计算"></a>1.什么是云计算</h2><ul>
+<li><p>云计算（Cloud Computing）是基于互联网的相关服务的增加、使用和交付模式，通常涉及通过互联网来提供动态易扩展且经常是虚拟化的资源。</p>
+</li>
+<li><p>云计算是一种按使用量付费的模式，这种模式是提供可用的、便捷的、按需的网络访问，进入可配置的计算资源共享池，这些资源能够被快速提供，只需投入很少的管理工作，或与服务供应商进行很少的交互。</p>
+</li>
+</ul>
+<h2 id="2-云计算的产生背景"><a href="#2-云计算的产生背景" class="headerlink" title="2.云计算的产生背景"></a>2.云计算的产生背景</h2><ul>
+<li><p>云计算是继20世纪80年代大型计算机到客户/服务器的大转变的又一种巨变。</p>
+</li>
+<li><p>云计算是分布式计算（Distributed Computing）、并行计算（Parallel Computing）、效用计算（Utility Computing）、网络存储（Network Storage Technologies）、虚拟化（Virtualization）、负荷均衡（Load Balance）、热备份冗余（High Available）等传统计算机和网络技术发展融合的产物。</p>
+</li>
+</ul>
+<h2 id="3-云计算的发展历史"><a href="#3-云计算的发展历史" class="headerlink" title="3.云计算的发展历史"></a>3.云计算的发展历史</h2><ul>
+<li>P2</li>
+</ul>
+<h2 id="4-分布式计算（定义-优点）"><a href="#4-分布式计算（定义-优点）" class="headerlink" title="4.分布式计算（定义/优点）"></a>4.分布式计算（定义/优点）</h2><ul>
+<li><p>定义：</p>
+<blockquote>
+<p>分布式计算是一种计算方法，和集中式计算是相对的。</p>
+<p>分布式计算将应用分解为许多更小的部分，分配到多台计算机进行处理，这样可以节省整体计算时间，大大提高计算效率。</p>
+</blockquote>
+</li>
+<li><p>优点：</p>
+<blockquote>
+<p>发挥“集体的力量”，将大任务分解成小任务，分配给多个计算节点同时去计算。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="5-云计算的关键技术"><a href="#5-云计算的关键技术" class="headerlink" title="5.云计算的关键技术"></a>5.云计算的关键技术</h2><ul>
+<li>分布式海量数据存储</li>
+<li>虚拟化技术</li>
+<li>云平台技术</li>
+<li>并行编程技术</li>
+<li>数据管理技术</li>
+</ul>
+<h2 id="6-虚拟化技术（定义-优点）"><a href="#6-虚拟化技术（定义-优点）" class="headerlink" title="6.虚拟化技术（定义/优点）"></a>6.虚拟化技术（定义/优点）</h2><ul>
+<li><p>定义：</p>
+<blockquote>
+<p>虚拟化技术是云计算系统的核心组成部分之一，是将各种计算及存储资源充分整合和高效利用的关键技术。</p>
+</blockquote>
+</li>
+<li><p>优点：</p>
+<blockquote>
+<p>资源共享</p>
+<p>资源定制</p>
+<p>细粒度资源管理</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="7-云交付模型"><a href="#7-云交付模型" class="headerlink" title="7.云交付模型"></a>7.云交付模型</h2><ul>
+<li><p>软件及服务（Software as a Service，SaaS）</p>
+</li>
+<li><p>平台及服务（Platform as a Service，Paas）</p>
+</li>
+<li><p>基础设施服务（Infrastructure as a Service，IaaS）</p>
+</li>
+<li><p>基本云交付模型的比较</p>
+<table>
+<thead>
+<tr>
+<th>云交付模型</th>
+<th>服务对象</th>
+<th>使用方式</th>
+<th>关键技术</th>
+<th align="left">用户的控制等级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IaaS</td>
+<td>需要硬件资源的用户</td>
+<td>使用者上传数据、程序代码、环境配置</td>
+<td>虚拟化技术、分布式海量数据存储等</td>
+<td align="left">使用和配置</td>
+</tr>
+<tr>
+<td>PaaS</td>
+<td>程序开发者</td>
+<td>使用者上传数据、程序代码</td>
+<td>云平台技术、数据管理技术等</td>
+<td align="left">有限的管理</td>
+</tr>
+<tr>
+<td>SaaS</td>
+<td>企业和需要软件应用的用户</td>
+<td>使用者上传数据</td>
+<td>Web服务技术、互联网应用开发技术等</td>
+<td align="left">完全的权限</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="8-云部署模式"><a href="#8-云部署模式" class="headerlink" title="8.云部署模式"></a>8.云部署模式</h2><ul>
+<li><p>公有云</p>
+<blockquote>
+<p>为外部客户提供服务的云，它所有的服务是供别人使用，而不是自己使用</p>
+</blockquote>
+</li>
+<li><p>私有云</p>
+<blockquote>
+<p>指企业自己使用的云，它所有的服务不是供别人使用，而是供自己内部人员或分支机构使用</p>
+</blockquote>
+</li>
+<li><p>混合云</p>
+<blockquote>
+<p>指供自己和客户共同使用的云，它所提供的的服务既可以供别人使用，也可以供自己使用</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="9-云计算的优势与挑战"><a href="#9-云计算的优势与挑战" class="headerlink" title="9.云计算的优势与挑战"></a>9.云计算的优势与挑战</h2><ul>
+<li>P14</li>
+</ul>
+<h2 id="10-典型云应用"><a href="#10-典型云应用" class="headerlink" title="10.典型云应用"></a>10.典型云应用</h2><ul>
+<li>云存储</li>
+<li>云服务</li>
+<li>云物联 </li>
+</ul>
+<h2 id="11-什么是虚拟化"><a href="#11-什么是虚拟化" class="headerlink" title="11.什么是虚拟化"></a>11.什么是虚拟化</h2><ul>
+<li>虚拟化是指计算机软件在虚拟的基础上而不是在真实的，独立的物理硬件基础上运行。</li>
+</ul>
+<h2 id="12-虚拟化带来的好处"><a href="#12-虚拟化带来的好处" class="headerlink" title="12.虚拟化带来的好处"></a>12.虚拟化带来的好处</h2><ul>
+<li>提高资源利用率</li>
+<li>降低成本，节能减排</li>
+<li>统一管理</li>
+<li>提高安全性</li>
+</ul>
+<h2 id="13-虚拟化的分类"><a href="#13-虚拟化的分类" class="headerlink" title="13.虚拟化的分类"></a>13.虚拟化的分类</h2><ul>
+<li>服务器虚拟化</li>
+<li>网络虚拟化</li>
+<li>存储虚拟化</li>
+</ul>
+<h2 id="14-虚拟化与云计算"><a href="#14-虚拟化与云计算" class="headerlink" title="14.虚拟化与云计算"></a>14.虚拟化与云计算</h2><ul>
+<li>云计算将是下一代计算模式的演变方向，而虚拟化则是实现这种转变的最为重要的基石。虚拟化技术与云计算几乎是相辅相成的，在云计算涉及的地方，都有虚拟化的存在，可以说，虚拟化的技术是云计算实现的关键，没有虚拟化技术，谈不上云计算的实现。所以虚拟化与云计算有着紧密的关系，有了虚拟化的发展，使云计算成为可能，而随着云计算的发展，带动虚拟化技术进一步的成熟和完善。</li>
+</ul>
+<h2 id="15-云计算的特点"><a href="#15-云计算的特点" class="headerlink" title="15.云计算的特点"></a>15.云计算的特点</h2><ul>
+<li>跨平台性</li>
+<li>易用性</li>
+<li>轻量性</li>
+</ul>
+<h2 id="16-大数据的特点"><a href="#16-大数据的特点" class="headerlink" title="16.大数据的特点"></a>16.大数据的特点</h2><ul>
+<li>Volume（体量）</li>
+<li>Variety（多样）</li>
+<li>Velocity（速率）</li>
+<li>Value（价值）</li>
+</ul>
+<h2 id="17-大数据存储的问题"><a href="#17-大数据存储的问题" class="headerlink" title="17.大数据存储的问题"></a>17.大数据存储的问题</h2><ul>
+<li>容量</li>
+<li>延迟</li>
+<li>安全</li>
+<li>成本</li>
+<li>灵活性</li>
+</ul>
+<h2 id="18-HDFS（分布式文件系统）"><a href="#18-HDFS（分布式文件系统）" class="headerlink" title="18.HDFS（分布式文件系统）"></a>18.HDFS（分布式文件系统）</h2><ul>
+<li><p>优点：</p>
+<blockquote>
+<p>HDFS是一个高度容错性的系统，适合部署在廉价的机器上</p>
+<p>HDFS能够提供高吞吐量的数据访问，非常适合大规模数据集上的应用</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>客户端访问HDFS中文件的流程：</p>
+<blockquote>
+<p>（1）从NameNode获取组成这个文件的数据块位置列表</p>
+<p>（2）根据位置列表得到储存数据块的DataNode</p>
+<p>（3）访问DataNode获取数据</p>
+</blockquote>
+</li>
+<li><p>分块的原因：</p>
+<blockquote>
+<ul>
+<li>HDFS将文件数据分割成若干数据块（Block），每个DataNode存储</li>
+</ul>
+<p>一部分数据块，这样文件就分布存储在整个HDFS服务器集群中</p>
+<ul>
+<li>应用程序客户端（Client）可以并行地对这些数据块进行访问，极大</li>
+</ul>
+<p>地提高了访问速度</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="19-列式数据库"><a href="#19-列式数据库" class="headerlink" title="19.列式数据库"></a>19.列式数据库</h2><ul>
+<li><p>HBase以表的形式存放数据。表由行和列组成，每个列属于某个列簇，由行和列确定的存储单元称为元素，每个元素保存了同一份数据的多个版本，由时间戳来表示区分。</p>
+</li>
+<li><p>BigTab——分布式数据存储系统</p>
+<blockquote>
+<p><strong>特点：</strong></p>
+<p>广泛应用性、可扩展性、高性能、高可用性</p>
+</blockquote>
+</li>
+<li><p>HBase——非关系型分布式数据库</p>
+<blockquote>
+<p><strong>特点：</strong>高可靠、高性能、面向列、可伸缩</p>
+<p><strong>优点：</strong>存储非结构化和半结构化的数据</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="20-分布式处理"><a href="#20-分布式处理" class="headerlink" title="20.分布式处理"></a>20.分布式处理</h2><ul>
+<li><p>CPU多核</p>
+<blockquote>
+<p>多任务能力强</p>
+</blockquote>
+</li>
+<li><p>MPI并行计算框架</p>
+<blockquote>
+<p>是一个标准且可移植的消息传递系统，服务于大规模的并行计算。广泛采用的实现有 MPICH</p>
+</blockquote>
+</li>
+<li><p>Hadoop MapReduce</p>
+<blockquote>
+<p>Hadoop框架最核心的设计就是HDFS和MapReduce，HDFS为海量的数据提供存储，而MapReduce为海量的数据提供计算。</p>
+</blockquote>
+</li>
+<li><p>Spark</p>
+<blockquote>
+<p>Spark是一个高性能的内存分布式计算框架，具备扩展性、任务容错等特性。</p>
+<p>Spark 基于 map-reduce 算法实现的分布式计算，拥有 Hadoop MapReduce 所具有的优点。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="21-Hadoop-MapReduce架构"><a href="#21-Hadoop-MapReduce架构" class="headerlink" title="21.Hadoop MapReduce架构"></a>21.Hadoop MapReduce架构</h2><ul>
+<li>MapReduce是一种分布式计算框架，能够处理大量数据，并提供容错，可靠等功能，运行在大规模计算集群中。</li>
+<li>MapReduce计算框架采用主从架构，由Client、JobTracker、TaskTarcker组成。</li>
+</ul>
+<h2 id="22-MapReduce工作机制"><a href="#22-MapReduce工作机制" class="headerlink" title="22.MapReduce工作机制"></a>22.MapReduce工作机制</h2><ul>
+<li>MapReduce计算模式的功能原理是把计算任务拆解成Map和Reduce两个过程来执行。</li>
+<li>一个MapReduce程序一般分为Map和Reduce两个阶段，中间可能会有combine。在数据被分割后通过Map函数的程序将数据映射成不同的区块，分配给计算机集群处理达到分布式运算的效果，再通过Reduce函数的程序将结果汇整，最后输出运行计算结果。</li>
+<li>Map</li>
+<li>Reduce</li>
+<li>Combine</li>
+<li>Shuffle</li>
+</ul>
+<h2 id="23-Spark与MapReduce对比"><a href="#23-Spark与MapReduce对比" class="headerlink" title="23.Spark与MapReduce对比"></a>23.Spark与MapReduce对比</h2><ul>
+<li><p>在计算中间结果方面：</p>
+<blockquote>
+<p>Spark要求计算结果快速返回、处理任务低延迟，因此Spark基本把数据存放在内存中。</p>
+<p>MapReduce计算过程把Map任务产生的计算结果放到本地磁盘。</p>
+</blockquote>
+</li>
+<li><p>在计算模型方面：</p>
+<blockquote>
+<p>Spark采用DAG描述计算任务，所有的RDD操作最后都采用DAG描述，然后优化分发到各个计算节点上运行，因此Spark拥有更丰富的功能。</p>
+<p>MapReduce只采用Map( )和Reduce( )两个函数，计算功能比较简单。</p>
+</blockquote>
+</li>
+<li><p>在计算速度方面：</p>
+<blockquote>
+<p>Spark采用内存作为计算结果的主要存储介质，速度更快。</p>
+<p>MapReduce用本地磁盘作为中间结果存储介质。</p>
+</blockquote>
+</li>
+<li><p>在容错方面：</p>
+<blockquote>
+<p>Spark采用和MapReduce类似的方式。针对丢失和无法引用的RDD：Spark采用记录的transformation,采取重新过已做过的transfromation。</p>
+</blockquote>
+</li>
+<li><p>在计算成本方面：</p>
+<blockquote>
+<p>Spark需要高容量的内存。</p>
+<p>MapReduce是面向磁盘的分布式计算框架。</p>
+<p>因此Spark的计算成本高于MapReduce计算框架。</p>
+</blockquote>
+</li>
+<li><p>在简单易管理方面：</p>
+<blockquote>
+<p>Spark在同一个集群上运行流处理、批处理和机器学习，同时Spark也可以管理不同的负载。MapReduce都做不到。</p>
+</blockquote>
+</li>
+</ul>
+</p>
+      <div class="post-button"><a class="btn" href="/2020/11/27/%E4%BA%91%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
+    </div>
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/11/25/FastJson/"></a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-11-25</span>
+      <p><h1 id="FastJson解析Json数据"><a href="#FastJson解析Json数据" class="headerlink" title="FastJson解析Json数据"></a>FastJson解析Json数据</h1><h2 id="由于我一开始搜如何解析字符串就搜的有问题，导致我一直没有把人体关键点的json数据给解析出来！！"><a href="#由于我一开始搜如何解析字符串就搜的有问题，导致我一直没有把人体关键点的json数据给解析出来！！" class="headerlink" title="由于我一开始搜如何解析字符串就搜的有问题，导致我一直没有把人体关键点的json数据给解析出来！！"></a>由于我一开始搜如何解析字符串就搜的有问题，导致我一直没有把人体关键点的json数据给解析出来！！</h2><h2 id="一、首先我们先来了解一下什么是JSONArray和JSONObject"><a href="#一、首先我们先来了解一下什么是JSONArray和JSONObject" class="headerlink" title="一、首先我们先来了解一下什么是JSONArray和JSONObject"></a>一、首先我们先来了解一下什么是JSONArray和JSONObject</h2><h3 id="1-JSONObject和JSONArray的数据表示形式"><a href="#1-JSONObject和JSONArray的数据表示形式" class="headerlink" title="1.JSONObject和JSONArray的数据表示形式"></a>1.JSONObject和JSONArray的数据表示形式</h3><p>JSONObject的数据是用 {  } 来表示的。</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">&quot;id&quot;</span> : <span class="string">&quot;123&quot;</span>, <span class="attr">&quot;courseID&quot;</span> : <span class="string">&quot;huangt-test&quot;</span>, <span class="attr">&quot;title&quot;</span> : <span class="string">&quot;提交作业&quot;</span>, <span class="attr">&quot;content&quot;</span> : <span class="literal">null</span>  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>JSONArray，顾名思义是由JSONObject构成的数组，用  [ { } , { } , ……  , { } ]  来表示。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ &#123; <span class="attr">&quot;id&quot;</span> : <span class="string">&quot;123&quot;</span>, <span class="attr">&quot;courseID&quot;</span> : <span class="string">&quot;huangt-test&quot;</span>, <span class="attr">&quot;title&quot;</span> : <span class="string">&quot;提交作业&quot;</span> &#125;  ,  &#123; <span class="attr">&quot;content&quot;</span> : <span class="literal">null</span>, <span class="attr">&quot;beginTime&quot;</span> : <span class="number">1398873600000</span> <span class="string">&quot;endTime&quot;</span> &#125; ] </span><br></pre></td></tr></table></figure>
+
+<p> 表示了包含2个JSONObject的JSONArray。</p>
+<h3 id="2、如何从字符串String获得JSONObject对象和JSONArray对象"><a href="#2、如何从字符串String获得JSONObject对象和JSONArray对象" class="headerlink" title="2、如何从字符串String获得JSONObject对象和JSONArray对象"></a>2、如何从字符串String获得JSONObject对象和JSONArray对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JSONObject  jsonObject  = new JSONObject ( String <span class="built_in">str</span>);</span><br><span class="line">JSONArray jsonArray = new JSONArray(String <span class="built_in">str</span>) ;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、如何从JSONArray中获得JSONObject对象"><a href="#3、如何从JSONArray中获得JSONObject对象" class="headerlink" title="3、如何从JSONArray中获得JSONObject对象"></a>3、如何从JSONArray中获得JSONObject对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSONObject   jsonObject  =  jsonArray.getJSONObject(i) ;    </span><br></pre></td></tr></table></figure>
+
+<h3 id="4、获取JSON内的数据"><a href="#4、获取JSON内的数据" class="headerlink" title="4、获取JSON内的数据"></a>4、获取JSON内的数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span>   mid= jsonObject.getInt (<span class="string">&quot;id&quot;</span>) ;   </span><br><span class="line">String  mcourse=jsonObject.getString(<span class="string">&quot;courseID&quot;</span>) ;   </span><br></pre></td></tr></table></figure>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/12/06/first/">first</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/06/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/30/JVM/">(no title)</a>
-          </li>
-        
-      </ul>
+
+
+
+<h2 id="二、实战练习"><a href="#二、实战练习" class="headerlink" title="二、实战练习"></a>二、实战练习</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;person_num&quot;</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">&quot;person_info&quot;</span>:</span><br><span class="line">  [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;body_parts&quot;</span>:</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;left_hip&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">1085.7919921875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">539.7880859375</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8506112098693848</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;top_head&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">36.4072265625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">325.6279296875</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9086140394210815</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_mouth_corner&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">229.1513671875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">304.2119140625</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9057914614677429</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;neck&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">336.2314453125</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">347.0439453125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9084023833274841</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_shoulder&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">421.8955078125</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">582.6201171875</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.885292112827301</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_knee&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">1578.3603515625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">604.0361328125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8635001182556152</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_ankle&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">2006.6806640625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">646.8681640625</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.855407178401947</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_mouth_corner&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">229.1513671875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">368.4599609375</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9248584508895874</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_elbow&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">743.1357421875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">90.0517578125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8528175950050354</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_ear&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">186.3193359375</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">239.9638671875</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9075623750686646</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;nose&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">186.3193359375</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">347.0439453125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9220911264419556</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_eye&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">143.4873046875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">368.4599609375</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9121968150138855</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_eye&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">143.4873046875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">304.2119140625</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9265672564506531</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_hip&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">1107.2080078125</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">282.7958984375</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8335758447647095</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_wrist&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">957.2958984375</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">625.4521484375</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8132022023200989</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_ear&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">164.9033203125</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">432.7080078125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9240163564682007</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_elbow&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">721.7197265625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">689.7001953125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8721514940261841</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_shoulder&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">464.7275390625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">132.8837890625</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8287588357925415</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_ankle&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">2006.6806640625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">347.0439453125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8630667924880981</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_knee&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">1599.7763671875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">304.2119140625</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8679742813110352</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_wrist&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">978.7119140625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">175.7158203125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8206831812858582</span>&#125;</span><br><span class="line">      &#125;,</span><br><span class="line">        <span class="attr">&quot;location&quot;</span>:</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">&quot;height&quot;</span>: <span class="number">2193.0</span>, <span class="attr">&quot;width&quot;</span>: <span class="number">782.5744018554688</span>, <span class="attr">&quot;top&quot;</span>: <span class="number">0.0</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9992212057113647</span>, <span class="attr">&quot;left&quot;</span>: <span class="number">31.35586547851562</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">        <span class="attr">&quot;log_id&quot;</span>: <span class="number">1601977375525754157</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.首先最外面一层是&#123; &#125;,为JSONObject类型。</span></span><br><span class="line">JSONObject jsonObject = JSON.parseObject(result);</span><br><span class="line"><span class="comment"># 2.然后person_info对应的是JSONArray类型。</span></span><br><span class="line">JSONArray person_info = jsonObject.getJSONArray(<span class="string">&quot;person_info&quot;</span>);</span><br><span class="line"><span class="comment"># 3.body_parts为JSONObject类型，取第一个元素body_parts。</span></span><br><span class="line"><span class="comment"># 注意这里getJSONObject的参数是0！！！</span></span><br><span class="line">JSONObject body_parts = person_info.getJSONObject(<span class="number">0</span>);</span><br><span class="line"><span class="comment"># 4.获取body_parts里具体的JSONObject</span></span><br><span class="line">JSONObject body_parts_cemplex = body_parts.getJSONObject(<span class="string">&quot;body_parts&quot;</span>);</span><br><span class="line">System.out.println(body_parts_cemplex.getJSONObject(<span class="string">&quot;nose&quot;</span>).getDouble(<span class="string">&quot;x&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里有个省略的写法</span></span><br><span class="line">JSONObject body_parts_cemplex = JSON.parseObject(result).getJSONArray(<span class="string">&quot;person_info&quot;</span>).getJSONObject(<span class="number">0</span>).getJSONObject(<span class="string">&quot;body_parts&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+</p>
+      <div class="post-button"><a class="btn" href="/2020/11/25/FastJson/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
+    </div>
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/11/25/opencv%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/"></a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-11-25</span>
+      <p><h1 id="opencv人脸识别"><a href="#opencv人脸识别" class="headerlink" title="opencv人脸识别"></a>opencv人脸识别</h1><h2 id="opencv人脸识别器"><a href="#opencv人脸识别器" class="headerlink" title="opencv人脸识别器"></a>opencv人脸识别器</h2><p>1.EigenFaces(本征)人脸识别器识别器- cv2.face.createEigenFaceRecognizer()–只关注面部的独特特征。</p>
+<ul>
+<li>它从该新图像中提取主要成分，并将该成分与其在训练过程中存储的成分列表进行比较，找到最匹配的成分，并返回与该最匹配成分关联的人员标签。</li>
+</ul>
+<p>2.FisherFaces人脸识别器识别器- cv2.face.createFisherFaceRecognizer()–前一种的改进</p>
+<ul>
+<li>Fisherfaces算法不是提取代表所有人的所有面孔的有用特征，而是提取将一个人与其他人区分开的有用特征。</li>
+<li>即使在Fisherfaces算法中，如果多个人的图像由于外部光源（如光）而发生急剧变化，它们也将主导其他特征并影响识别精度。</li>
+</ul>
+<p>3.本地二进制模式直方图（LBPH）人脸识别器- cv2.face.createLBPHFaceRecognizer()–克服光照对前两种的影响</p>
+<ul>
+<li>LBPH算法尝试找到图像的局部结构，并通过将每个像素与其相邻像素进行比较来做到这一点。</li>
+<li>取一个3x3的窗口并将其移动一个图像，每次移动（图像的每个局部），将中心的像素与其相邻像素进行比较。强度值小于或等于中心像素的邻居用1表示，其他用0表示。然后在3x3窗口下按顺时针顺序读取这些0/1值，您将得到一个像11100011这样的二进制模式，该模式是局部的到图像的某些区域。您在整个图像上执行此操作，并且将具有本地二进制模式的列表。</li>
+</ul>
+<p>![截屏2020-11-25 14.34.45](/Users/CodeKong/USERPROG1/notebook/人脸识别/截屏2020-11-25 14.34.45.png)</p>
+<ul>
+<li>当您将新图像提供给识别器进行识别时，它将为该新图像生成一个直方图，将该直方图与已有的直方图进行比较，找到最匹配的直方图，并返回与该最佳图像相关联的人员标签匹配直方图。</li>
+</ul>
+<h2 id="使用opencv进行人脸识别"><a href="#使用opencv进行人脸识别" class="headerlink" title="使用opencv进行人脸识别"></a>使用opencv进行人脸识别</h2><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1.准备训练数据：我们将读取每个人/对象的训练图像及其标签，从每个图像中检测面部。</p>
+<p>2.训练人脸识别器：向OpenCV的LBPH人脸识别器提供我们在步骤1中准备的数据，以对其进行训练。</p>
+<p>3.测试</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlibinline</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="训练数据文件夹目录"><a href="#训练数据文件夹目录" class="headerlink" title="训练数据文件夹目录"></a>训练数据文件夹目录</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">training-data</span><br><span class="line"> |-------------- s1 </span><br><span class="line"> |                              |-- <span class="number">1.j</span>pg </span><br><span class="line"> |                              |-- ... </span><br><span class="line"> |                              |-- <span class="number">12.j</span>pg </span><br><span class="line"> |-------------- s2</span><br><span class="line"> |                              |-- <span class="number">1.j</span>pg</span><br><span class="line"> |                              |-- ...</span><br><span class="line"> |                              |-- <span class="number">12.j</span>pg</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​     OpenCV人脸识别器接受标签为整数，因此我们需要定义整数标签和人员实际姓名之间的映射，因此下面我定义人员整数标签及其相应名称的映射。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#训练的数据没有标签0，所以为空</span></span><br><span class="line">subjects = [<span class="string">&quot;&quot;</span>, <span class="string">&quot;Tom Cruise&quot;</span>, <span class="string">&quot;Shahrukh Khan&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#function to detect face using OpenCV</span></span><br><span class="line"><span class="comment">#截取出人脸</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">detect_face</span>(<span class="params">img</span>):</span></span><br><span class="line">    <span class="comment">#convert the test image to gray image as opencv face detector expects gray images</span></span><br><span class="line">    <span class="comment">#转为灰度图像</span></span><br><span class="line">    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#load OpenCV face detector, I am using LBP which is fast</span></span><br><span class="line">    <span class="comment">#there is also a more accurate but slow Haar classifier</span></span><br><span class="line">    <span class="comment">#加载LBP人脸检测器</span></span><br><span class="line">    face_cascade = cv2.CascadeClassifier(<span class="string">&#x27;opencv-files/lbpcascade_frontalface.xml&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#let&#x27;s detect multiscale (some images may be closer to camera than others) images</span></span><br><span class="line">    <span class="comment">#result is a list of faces</span></span><br><span class="line">    faces = face_cascade.detectMultiScale(gray, scaleFactor=<span class="number">1.2</span>, minNeighbors=<span class="number">5</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#if no faces are detected then return original img</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">len</span>(faces) == <span class="number">0</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span>, <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#under the assumption that there will be only one face,</span></span><br><span class="line">    <span class="comment">#extract the face area</span></span><br><span class="line">    (x, y, w, h) = faces[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#return only the face part of the image</span></span><br><span class="line">    <span class="keyword">return</span> gray[y:y+w, x:x+h], faces[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">＃此函数将读取所有人的训练图像，从每个图像中检测面部</span><br><span class="line">＃并返回两张大小完全相同的列表，一张列表</span><br><span class="line">＃张面孔，以及每张面孔的另一张标签列表</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prepare_training_data</span>(<span class="params">data_folder_path</span>):</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#------STEP-1--------</span></span><br><span class="line">    <span class="comment">#get the directories (one directory for each subject) in data folder</span></span><br><span class="line">    dirs = os.listdir(data_folder_path)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#list to hold all subject faces</span></span><br><span class="line">    faces = []</span><br><span class="line">    <span class="comment">#list to hold labels for all subjects</span></span><br><span class="line">    labels = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#let&#x27;s go through each directory and read images within it</span></span><br><span class="line">    <span class="keyword">for</span> dir_name <span class="keyword">in</span> dirs:</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#our subject directories start with letter &#x27;s&#x27; so</span></span><br><span class="line">        <span class="comment">#ignore any non-relevant directories if any</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> dir_name.startswith(<span class="string">&quot;s&quot;</span>):</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="comment">#------STEP-2--------</span></span><br><span class="line">        <span class="comment">#extract label number of subject from dir_name</span></span><br><span class="line">        <span class="comment">#format of dir name = slabel</span></span><br><span class="line">        <span class="comment">#, so removing letter &#x27;s&#x27; from dir_name will give us label</span></span><br><span class="line">        label = <span class="built_in">int</span>(dir_name.replace(<span class="string">&quot;s&quot;</span>, <span class="string">&quot;&quot;</span>))</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#build path of directory containin images for current subject subject</span></span><br><span class="line">        <span class="comment">#sample subject_dir_path = &quot;training-data/s1&quot;</span></span><br><span class="line">        subject_dir_path = data_folder_path + <span class="string">&quot;/&quot;</span> + dir_name</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#get the images names that are inside the given subject directory</span></span><br><span class="line">        subject_images_names = os.listdir(subject_dir_path)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#------STEP-3--------</span></span><br><span class="line">        <span class="comment">#go through each image name, read image, </span></span><br><span class="line">        <span class="comment">#detect face and add face to list of faces</span></span><br><span class="line">        <span class="keyword">for</span> image_name <span class="keyword">in</span> subject_images_names:</span><br><span class="line">            </span><br><span class="line">            <span class="comment">#ignore system files like .DS_Store</span></span><br><span class="line">            <span class="keyword">if</span> image_name.startswith(<span class="string">&quot;.&quot;</span>):</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">#build image path</span></span><br><span class="line">            <span class="comment">#sample image path = training-data/s1/1.pgm</span></span><br><span class="line">            image_path = subject_dir_path + <span class="string">&quot;/&quot;</span> + image_name</span><br><span class="line"></span><br><span class="line">            <span class="comment">#read image</span></span><br><span class="line">            image = cv2.imread(image_path)</span><br><span class="line">            </span><br><span class="line">            <span class="comment">#display an image window to show the image </span></span><br><span class="line">            cv2.imshow(<span class="string">&quot;Training on image...&quot;</span>, image)</span><br><span class="line">            cv2.waitKey(<span class="number">100</span>)</span><br><span class="line">            </span><br><span class="line">            <span class="comment">#detect face</span></span><br><span class="line">            face, rect = detect_face(image)</span><br><span class="line">            </span><br><span class="line">            <span class="comment">#------STEP-4--------</span></span><br><span class="line">            <span class="comment">#for the purpose of this tutorial</span></span><br><span class="line">            <span class="comment">#we will ignore faces that are not detected</span></span><br><span class="line">            <span class="keyword">if</span> face <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="comment">#add face to list of faces</span></span><br><span class="line">                faces.append(face)</span><br><span class="line">                <span class="comment">#add label for this face</span></span><br><span class="line">                labels.append(label)</span><br><span class="line">            </span><br><span class="line">    cv2.destroyAllWindows()</span><br><span class="line">    cv2.waitKey(<span class="number">1</span>)</span><br><span class="line">    cv2.destroyAllWindows()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> faces, labels</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;Preparing data...&quot;</span>)</span><br><span class="line">faces, labels = prepare_training_data(<span class="string">&quot;training-data&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;Data prepared&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#print total faces and labels</span></span><br><span class="line">print(<span class="string">&quot;Total faces: &quot;</span>, <span class="built_in">len</span>(faces))</span><br><span class="line">print(<span class="string">&quot;Total labels: &quot;</span>, <span class="built_in">len</span>(labels))</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_rectangle</span>(<span class="params">img, rect</span>):</span></span><br><span class="line">    (x, y, w, h) = rect</span><br><span class="line">    cv2.rectangle(img, (x, y), (x+w, y+h), (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment">#function to draw text on give image starting from</span></span><br><span class="line"><span class="comment">#passed (x, y) coordinates. </span></span><br><span class="line"><span class="comment">#cv2.putText(img, text, startPoint, font, fontSize, rgbColor, lineWidth)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_text</span>(<span class="params">img, text, x, y</span>):</span></span><br><span class="line">    cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_PLAIN, <span class="number">1.5</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict</span>(<span class="params">test_img</span>):</span></span><br><span class="line">    <span class="comment">#make a copy of the image as we don&#x27;t want to chang original image</span></span><br><span class="line">    img = test_img.copy()</span><br><span class="line">    <span class="comment">#detect face from the image</span></span><br><span class="line">    face, rect = detect_face(img)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#predict the image using our face recognizer </span></span><br><span class="line">    label= face_recognizer.predict(face)</span><br><span class="line">    <span class="comment">#get name of respective label returned by face recognizer</span></span><br><span class="line">    label_text = subjects[label]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#draw a rectangle around face detected</span></span><br><span class="line">    draw_rectangle(img, rect)</span><br><span class="line">    <span class="comment">#draw name of predicted person</span></span><br><span class="line">    draw_text(img, label_text, rect[<span class="number">0</span>], rect[<span class="number">1</span>]-<span class="number">5</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> img</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;Predicting images...&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#load test images</span></span><br><span class="line">test_img1 = cv2.imread(<span class="string">&quot;test-data/test1.jpg&quot;</span>)</span><br><span class="line">test_img2 = cv2.imread(<span class="string">&quot;test-data/test2.jpg&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#perform a prediction</span></span><br><span class="line">predicted_img1 = predict(test_img1)</span><br><span class="line">predicted_img2 = predict(test_img2)</span><br><span class="line">print(<span class="string">&quot;Prediction complete&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#create a figure of 2 plots (one for each test image)</span></span><br><span class="line">f, (ax1, ax2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, figsize=(<span class="number">10</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#display test image1 result</span></span><br><span class="line">ax1.imshow(cv2.cvtColor(predicted_img1, cv2.COLOR_BGR2RGB))</span><br><span class="line"></span><br><span class="line"><span class="comment">#display test image2 result</span></span><br><span class="line">ax2.imshow(cv2.cvtColor(predicted_img2, cv2.COLOR_BGR2RGB))</span><br><span class="line"></span><br><span class="line"><span class="comment">#display both images</span></span><br><span class="line">cv2.imshow(<span class="string">&quot;Tom cruise test&quot;</span>, predicted_img1)</span><br><span class="line">cv2.imshow(<span class="string">&quot;Shahrukh Khan test&quot;</span>, predicted_img2)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br><span class="line">cv2.waitKey(<span class="number">1</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong><em>人脸识别是一个有趣的想法，OpenCV使我们对其进行编码变得极其简单和容易。一个完整的人脸识别应用程序只需要几行代码，我们只需更改一行代码就可以在所有三个人脸识别器之间进行切换。就这么简单。<br>尽管EigenFaces，FisherFaces和LBPH面部识别器都不错，但是还有更好的方法来进行面部识别，例如使用定向梯度直方图（HOG）和神经网络。因此，如今已经结合使用OpenCV和机器学习来实现更高级的面部识别算法。</em></strong></p>
+</p>
+      <div class="post-button"><a class="btn" href="/2020/11/25/opencv%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
     </div>
   </div>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
+
+
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
 
   </div>
+</div>
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/avatar.jpeg" alt="John Doe"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+    
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>Pages</span>
+        <ul>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>Friends</span>
+        <ul>
+          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+
+
 </body>
 </html>
