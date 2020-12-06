@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>CodeKong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="CodeKong">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.3.9',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<div class="single">
+
+<div id="page">
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/post_cover.jpeg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/avatar.jpeg"></a></div>
+    <span>2020-11-25</span>
+    <h2></h2>
+    
+    </div>
+</div>
+</div>
+
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h1 id="FastJson解析Json数据"><a href="#FastJson解析Json数据" class="headerlink" title="FastJson解析Json数据"></a>FastJson解析Json数据</h1><h2 id="由于我一开始搜如何解析字符串就搜的有问题，导致我一直没有把人体关键点的json数据给解析出来！！"><a href="#由于我一开始搜如何解析字符串就搜的有问题，导致我一直没有把人体关键点的json数据给解析出来！！" class="headerlink" title="由于我一开始搜如何解析字符串就搜的有问题，导致我一直没有把人体关键点的json数据给解析出来！！"></a>由于我一开始搜如何解析字符串就搜的有问题，导致我一直没有把人体关键点的json数据给解析出来！！</h2><h2 id="一、首先我们先来了解一下什么是JSONArray和JSONObject"><a href="#一、首先我们先来了解一下什么是JSONArray和JSONObject" class="headerlink" title="一、首先我们先来了解一下什么是JSONArray和JSONObject"></a>一、首先我们先来了解一下什么是JSONArray和JSONObject</h2><h3 id="1-JSONObject和JSONArray的数据表示形式"><a href="#1-JSONObject和JSONArray的数据表示形式" class="headerlink" title="1.JSONObject和JSONArray的数据表示形式"></a>1.JSONObject和JSONArray的数据表示形式</h3><p>JSONObject的数据是用 {  } 来表示的。</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">&quot;id&quot;</span> : <span class="string">&quot;123&quot;</span>, <span class="attr">&quot;courseID&quot;</span> : <span class="string">&quot;huangt-test&quot;</span>, <span class="attr">&quot;title&quot;</span> : <span class="string">&quot;提交作业&quot;</span>, <span class="attr">&quot;content&quot;</span> : <span class="literal">null</span>  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>JSONArray，顾名思义是由JSONObject构成的数组，用  [ { } , { } , ……  , { } ]  来表示。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ &#123; <span class="attr">&quot;id&quot;</span> : <span class="string">&quot;123&quot;</span>, <span class="attr">&quot;courseID&quot;</span> : <span class="string">&quot;huangt-test&quot;</span>, <span class="attr">&quot;title&quot;</span> : <span class="string">&quot;提交作业&quot;</span> &#125;  ,  &#123; <span class="attr">&quot;content&quot;</span> : <span class="literal">null</span>, <span class="attr">&quot;beginTime&quot;</span> : <span class="number">1398873600000</span> <span class="string">&quot;endTime&quot;</span> &#125; ] </span><br></pre></td></tr></table></figure>
+
+<p> 表示了包含2个JSONObject的JSONArray。</p>
+<h3 id="2、如何从字符串String获得JSONObject对象和JSONArray对象"><a href="#2、如何从字符串String获得JSONObject对象和JSONArray对象" class="headerlink" title="2、如何从字符串String获得JSONObject对象和JSONArray对象"></a>2、如何从字符串String获得JSONObject对象和JSONArray对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JSONObject  jsonObject  = new JSONObject ( String <span class="built_in">str</span>);</span><br><span class="line">JSONArray jsonArray = new JSONArray(String <span class="built_in">str</span>) ;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、如何从JSONArray中获得JSONObject对象"><a href="#3、如何从JSONArray中获得JSONObject对象" class="headerlink" title="3、如何从JSONArray中获得JSONObject对象"></a>3、如何从JSONArray中获得JSONObject对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSONObject   jsonObject  =  jsonArray.getJSONObject(i) ;    </span><br></pre></td></tr></table></figure>
+
+<h3 id="4、获取JSON内的数据"><a href="#4、获取JSON内的数据" class="headerlink" title="4、获取JSON内的数据"></a>4、获取JSON内的数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span>   mid= jsonObject.getInt (<span class="string">&quot;id&quot;</span>) ;   </span><br><span class="line">String  mcourse=jsonObject.getString(<span class="string">&quot;courseID&quot;</span>) ;   </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="二、实战练习"><a href="#二、实战练习" class="headerlink" title="二、实战练习"></a>二、实战练习</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;person_num&quot;</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">&quot;person_info&quot;</span>:</span><br><span class="line">  [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;body_parts&quot;</span>:</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;left_hip&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">1085.7919921875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">539.7880859375</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8506112098693848</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;top_head&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">36.4072265625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">325.6279296875</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9086140394210815</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_mouth_corner&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">229.1513671875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">304.2119140625</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9057914614677429</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;neck&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">336.2314453125</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">347.0439453125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9084023833274841</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_shoulder&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">421.8955078125</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">582.6201171875</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.885292112827301</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_knee&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">1578.3603515625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">604.0361328125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8635001182556152</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_ankle&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">2006.6806640625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">646.8681640625</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.855407178401947</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_mouth_corner&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">229.1513671875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">368.4599609375</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9248584508895874</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_elbow&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">743.1357421875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">90.0517578125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8528175950050354</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_ear&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">186.3193359375</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">239.9638671875</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9075623750686646</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;nose&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">186.3193359375</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">347.0439453125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9220911264419556</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_eye&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">143.4873046875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">368.4599609375</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9121968150138855</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_eye&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">143.4873046875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">304.2119140625</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9265672564506531</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_hip&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">1107.2080078125</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">282.7958984375</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8335758447647095</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_wrist&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">957.2958984375</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">625.4521484375</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8132022023200989</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_ear&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">164.9033203125</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">432.7080078125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9240163564682007</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;left_elbow&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">721.7197265625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">689.7001953125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8721514940261841</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_shoulder&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">464.7275390625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">132.8837890625</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8287588357925415</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_ankle&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">2006.6806640625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">347.0439453125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8630667924880981</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_knee&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">1599.7763671875</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">304.2119140625</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8679742813110352</span>&#125;,</span><br><span class="line">        <span class="attr">&quot;right_wrist&quot;</span>: &#123;<span class="attr">&quot;y&quot;</span>: <span class="number">978.7119140625</span>, <span class="attr">&quot;x&quot;</span>: <span class="number">175.7158203125</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.8206831812858582</span>&#125;</span><br><span class="line">      &#125;,</span><br><span class="line">        <span class="attr">&quot;location&quot;</span>:</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">&quot;height&quot;</span>: <span class="number">2193.0</span>, <span class="attr">&quot;width&quot;</span>: <span class="number">782.5744018554688</span>, <span class="attr">&quot;top&quot;</span>: <span class="number">0.0</span>, <span class="attr">&quot;score&quot;</span>: <span class="number">0.9992212057113647</span>, <span class="attr">&quot;left&quot;</span>: <span class="number">31.35586547851562</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">        <span class="attr">&quot;log_id&quot;</span>: <span class="number">1601977375525754157</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.首先最外面一层是&#123; &#125;,为JSONObject类型。</span></span><br><span class="line">JSONObject jsonObject = JSON.parseObject(result);</span><br><span class="line"><span class="comment"># 2.然后person_info对应的是JSONArray类型。</span></span><br><span class="line">JSONArray person_info = jsonObject.getJSONArray(<span class="string">&quot;person_info&quot;</span>);</span><br><span class="line"><span class="comment"># 3.body_parts为JSONObject类型，取第一个元素body_parts。</span></span><br><span class="line"><span class="comment"># 注意这里getJSONObject的参数是0！！！</span></span><br><span class="line">JSONObject body_parts = person_info.getJSONObject(<span class="number">0</span>);</span><br><span class="line"><span class="comment"># 4.获取body_parts里具体的JSONObject</span></span><br><span class="line">JSONObject body_parts_cemplex = body_parts.getJSONObject(<span class="string">&quot;body_parts&quot;</span>);</span><br><span class="line">System.out.println(body_parts_cemplex.getJSONObject(<span class="string">&quot;nose&quot;</span>).getDouble(<span class="string">&quot;x&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里有个省略的写法</span></span><br><span class="line">JSONObject body_parts_cemplex = JSON.parseObject(result).getJSONArray(<span class="string">&quot;person_info&quot;</span>).getJSONObject(<span class="number">0</span>).getJSONObject(<span class="string">&quot;body_parts&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/11/27/%E4%BA%91%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3></h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-r.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>No older post</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">CodeKong</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
+
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/avatar.jpeg" alt="CodeKong"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>CodeKong</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+    
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>Pages</span>
+        <ul>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>Friends</span>
+        <ul>
+          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+
+
+</body>
+</html>
