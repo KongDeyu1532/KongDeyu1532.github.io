@@ -1,0 +1,41 @@
+<hr>
+<p>seo_title: Sample blog<br>cover: true<br>sidebar: []</p>
+<hr>
+<center>
+{% span large yellow, Sample %}
+{% span large green, Blog %}
+</center>
+<br>
+
+<h2 id="Team-member’s-blog"><a href="#Team-member’s-blog" class="headerlink" title="Team member’s blog"></a>Team member’s blog</h2><p>{% sitegroup %}<br>{% site xaoxuu, url=<a href="https://xaoxuu.com/">https://xaoxuu.com</a>, screenshot=<a href="https://image.thum.io/get/width/1024/crop/768/https://xaoxuu.com/">https://image.thum.io/get/width/1024/crop/768/https://xaoxuu.com/</a>, avatar=<a href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png</a>, description=简约风格 %}<br>{% site inkss, url=<a href="https://inkss.cn/">https://inkss.cn</a>, screenshot=<a href="https://image.thum.io/get/width/1024/crop/768/https://inkss.cn/">https://image.thum.io/get/width/1024/crop/768/https://inkss.cn/</a>, avatar=<a href="https://cdn.jsdelivr.net/gh/inkss/common@master/static/web/avatar.jpg">https://cdn.jsdelivr.net/gh/inkss/common@master/static/web/avatar.jpg</a>, description=这不是一段关于这个网站的描述文字啊喂 %}<br>{% site MHuiG, url=<a href="https://blog.mhuig.top/">https://blog.mhuig.top</a>, screenshot=<a href="https://image.thum.io/get/width/1024/crop/768/https://blog.mhuig.top////">https://image.thum.io/get/width/1024/crop/768/https://blog.mhuig.top////</a>, avatar=<a href="https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png">https://cdn.jsdelivr.net/gh/MHuiG/imgbed@master/data/p.png</a>, description=字文述描的站网个这于关段一是这 %}<br>{% site Colsrch, url=<a href="https://colsrch.cn/">https://colsrch.cn</a>, screenshot=<a href="https://image.thum.io/get/width/1024/crop/768/https://colsrch.cn/">https://image.thum.io/get/width/1024/crop/768/https://colsrch.cn/</a>, avatar=<a href="https://cdn.jsdelivr.net/gh/Colsrch/images/Colsrch/avatar.jpg">https://cdn.jsdelivr.net/gh/Colsrch/images/Colsrch/avatar.jpg</a>, description=愿多年以后，我可以酌一杯清酒，烂醉如泥，梦中回到我们的曾经。 %}<br>{% site Linhk1606, url=<a href="https://linhk1606.github.io/">https://linhk1606.github.io</a>, screenshot=<a href="https://image.thum.io/get/width/1024/crop/768/https://linhk1606.github.io/">https://image.thum.io/get/width/1024/crop/768/https://linhk1606.github.io/</a>, avatar=<a href="https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png">https://i.loli.net/2020/02/09/PN7I5RJfFtA93r2.png</a>, description=这是一段关于这个网站的描述文字 %}<br>{% endsitegroup %}</p>
+<br>
+
+<p>{% issues sites | api=<a href="https://api.github.com/repos/volantis-x/examples/issues?sort=updated&amp;state=open&amp;page=1&amp;per_page=100">https://api.github.com/repos/volantis-x/examples/issues?sort=updated&amp;state=open&amp;page=1&amp;per_page=100</a> | group=version:版本：^4.0,版本：^3.0,版本：^2.0 %}<br><br></p>
+<!-- more -->
+
+<p><br><br></p>
+<p>{% timeline how to add your own blog link %}</p>
+<p>{% timenode Step 1: Create a new <a href="https://github.com/volantis-x/examples/issues/">Issue</a> Fill in and submit according to the format %}</p>
+<pre><code class="json">{
+     &quot;title&quot;: &quot;&quot;,
+     &quot;description&quot;: &quot;&quot;,
+     &quot;screenshot&quot;: &quot;&quot;,
+     &quot;url&quot;: &quot;&quot;,
+     &quot;avatar&quot;: &quot;&quot;,
+     &quot;version&quot;: &quot;版本：^4.0&quot;
+}</code></pre>
+<p>In order to improve the image loading speed, it is recommended to optimize the image size:</p>
+<ol>
+<li>Open <a href="https://www.yasuotu.com/">compressed image</a> to upload your own screenshot, adjust the height of the image to <code>360px</code> and download it.</li>
+<li>Upload the compressed picture to <a href="https://7bu.top/">去不图床</a> and use the picture link as the screenshot link.</li>
+</ol>
+<p>{% endtimenode %}</p>
+<p>{% timenode Step 2: Refresh %}</p>
+<p>Come back and refresh to take effect.</p>
+<p>{% endtimenode %}</p>
+<p>{% endtimeline %}</p>
+<p>{% p h2, how to update my blog link %}</p>
+<ul>
+<li>If the issue is created by yourself, you can modify it yourself.</li>
+<li>If it was created by the administrator, please create a new one by yourself, and then ask the administrator to delete the old one.</li>
+</ul>

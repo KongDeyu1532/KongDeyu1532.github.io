@@ -1,0 +1,39 @@
+<hr>
+<p>layout: docs<br>group: docs-volantis-latest<br>order: 531<br>short_title: false<br>title:’tag-plugins: tab’<br>sidebar: [docs-volantis-latest, toc]<br>disqus:<br>   path: /wiki/volantis/</p>
+<hr>
+<p>This plugin is ported from <a href="https://theme-next.org/docs/tag-plugins/tabs">NexT #tabs</a></p>
+<pre><code class="md">{% tabs unique ID in the page %}
+&lt;!-- tab column 1 --&gt;
+content
+&lt;!-- endtab --&gt;
+&lt;!-- tab column 2 --&gt;
+content
+&lt;!-- endtab --&gt;
+{% endtabs %}</code></pre>
+<h2 id="Demo-effect"><a href="#Demo-effect" class="headerlink" title="Demo effect"></a>Demo effect</h2><p>{% tabs tab-id %}</p>
+<!-- tab column 1 -->
+
+<p>. . .</p>
+<!-- endtab -->
+
+<!-- tab column 2 -->
+
+<p>! ! !</p>
+<!-- endtab -->
+
+<p>{% endtabs %}</p>
+<h2 id="Source-code-of-the-above-example"><a href="#Source-code-of-the-above-example" class="headerlink" title="Source code of the above example"></a>Source code of the above example</h2><pre><code class="md">{% tabs tab-id %}
+
+&lt;!-- tab column 1 --&gt;
+
+. . .
+
+&lt;!-- endtab --&gt;
+
+&lt;!-- tab column 2 --&gt;
+
+! ! !
+
+&lt;!-- endtab --&gt;
+
+{% endtabs %}</code></pre>

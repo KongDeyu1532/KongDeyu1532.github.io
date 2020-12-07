@@ -1,0 +1,11 @@
+<hr>
+<p>robots: noindex,nofollow<br>sitemap: false<br>layout: page<br>group: docs-v4<br>meta:<br>  header: [centertitle]<br>sidebar: [docs-v4, toc, repos]<br>order: 541<br>short_title: false<br>title: ‘tag-plugins: inlineimage’</p>
+<hr>
+<p>Inlineimage 标签是一种行内图片标签，可以用来在一段话中间插入表情。</p>
+<pre><code class="md">{% inlineimage 图片链接, height=高度（可选） %}</code></pre>
+<h2 id="演示效果"><a href="#演示效果" class="headerlink" title="演示效果"></a>演示效果</h2><p>这是 {% inlineimage <a href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif">https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif</a> %} 一段话。</p>
+<p>这又是 {% inlineimage <a href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/5150.gif">https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/5150.gif</a>, height=40px %} 一段话。</p>
+<h2 id="上述示例的源码"><a href="#上述示例的源码" class="headerlink" title="上述示例的源码"></a>上述示例的源码</h2><pre><code class="md">这是 {% inlineimage https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif %} 一段话。
+
+这又是 {% inlineimage https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/5150.gif, height=40px %} 一段话。</code></pre>
+<h2 id="可以支持的参数"><a href="#可以支持的参数" class="headerlink" title="可以支持的参数"></a>可以支持的参数</h2><h3 id="高度"><a href="#高度" class="headerlink" title="高度"></a>高度</h3><pre><code>height=20px</code></pre>

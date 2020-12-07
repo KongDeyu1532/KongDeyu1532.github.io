@@ -1,0 +1,77 @@
+<hr>
+<p>layout: docs<br>title: front-matter<br>group: docs-volantis-latest<br>order: 402<br>short_title: 4-2 front-matter<br>sidebar: [docs-volantis-latest, toc]<br>disqus:<br>  path: /wiki/volantis/</p>
+<hr>
+<h2 id="front-matter"><a href="#front-matter" class="headerlink" title="front-matter"></a>front-matter</h2><p>The front-matter is the area at the top of the file separated by <code>---</code>, used to specify the variables of individual files. For more information, please refer to Hexo official document: <a href="https://hexo.io/zh-cn/docs/front-matter">#front-matter</a></p>
+<p>{% table %}<br>| Field | Meaning | Value Type | Default Value |<br>| :———– | :———— | :————- | :—— |<br>| layout | Layout template | String |-|<br>| title | Page title | String |-|<br>| seo_title | Page title | String | page.title |<br>| short_title | Page title (displayed in the group list) | String | page.title |<br>| date | Creation time | Date | File creation time |<br>| updated | Update date | Date | File modification time |<br>| link | External article URL | String |-|<br>| music | Internal music controls | [Object] |-|<br>| robots | robots | String |-|<br>| keywords | Page keywords | String |-|<br>| description | Page description, abstract | String |-|<br>| cover | Whether to show the cover | Bool | true |<br>| top_meta | Whether to display the meta information at the top of the article or page | Bool | true |<br>| bottom_meta | Whether to display the meta information at the bottom of the article or page | Bool | true |<br>| sidebar | Page sidebar | Bool, Array | theme.layout.*.sidebar |<br>| body | Page body elements | Array | theme.layout.on_page.body |<br>| mathjax | Whether to render formulas | Bool, String | false |<br>| thumbnail | Thumbnail | String | false |<br>| icons | icons | Array | [] |<br>| pin | whether to top | Bool | false |<br>{% endtable %}</p>
+<p>Fields unique to <code>layout:post</code>:</p>
+<p>{% table %}<br>| Field | Meaning | Value Type | Default Value |<br>| :—————– | :———— | :————- |: —— |<br>| author | Article author | [Object] | config.author |<br>| categories | Categories | String, Array |-|<br>| tags | Tags | String, Array |-|<br>| toc | Whether to generate a directory | Bool | true |<br>{% endtable %}</p>
+<p>author</p>
+<p>{% table %}<br>| Field | Meaning | Value Type | Default Value |<br>| :—————– | :———— | :————- |: —— |<br>| name | Author name | String | config.author |<br>| avatar | Avatar | String | config.avatar |<br>| url | Link | String | config.url |<br>{% endtable %}</p>
+<p>music</p>
+<p>{% table %}<br>| Field | Must | Value Type |<br>| :—————– | :———— | :————— - |<br>| server | yes | netease, tencent, kugou, xiami, baidu |<br>| type | yes | song, playlist, album, search, artist |<br>| id | yes | song id / playlist id / album id / search keyword |<br>{% endtable %}</p>
+<h3 id="Top-article"><a href="#Top-article" class="headerlink" title="Top article"></a>Top article</h3><p>Set the following values ​​in front-matter:</p>
+<pre><code class="yaml">pin: true</code></pre>
+<h3 id="Article-classification"><a href="#Article-classification" class="headerlink" title="Article classification"></a>Article classification</h3><p>Multiple categories have two relationships, one is hierarchy (equivalent to folders), and the other is juxtaposition (equivalent to tags).</p>
+<p>Multi-level classification:</p>
+<pre><code class="yaml">---
+categories: [category A, category B]
+---</code></pre>
+<p>or</p>
+<pre><code class="yaml">---
+categories:
+  -Category A
+  -Category B
+---</code></pre>
+<p>Parallel classification</p>
+<pre><code class="yaml">categories:
+  -[Category A]
+  -[Category B]</code></pre>
+<p>Multi-level + parallel classification</p>
+<pre><code class="yaml">categories:
+  -[Category A, Category B]
+  -[Category C, Category D]</code></pre>
+<h3 id="Article-Summary"><a href="#Article-Summary" class="headerlink" title="Article Summary"></a>Article Summary</h3><p>Insert <code>&lt;!-- more --&gt;</code> in the article, the previous part is the abstract.</p>
+<pre><code class="yml">---
+title: xxx
+date: 2020-02-21
+---
+
+This is a summary
+
+&lt;!-- more --&gt;
+
+This is the text</code></pre>
+<p>{% note warning, <strong>Note</strong>: <code>&lt;!-- more --&gt;</code> There must be blank lines before and after <code>&lt;!-- more --&gt;</code>, otherwise it may cause display dislocation. %}</p>
+<h3 id="Set-article-author"><a href="#Set-article-author" class="headerlink" title="Set article author"></a>Set article author</h3><p>With support for multi-author jointly maintain a blog, so you can set up a separate authors:</p>
+<pre><code class="yaml">---
+author:
+  name: Author
+  avatar: https://img.vim-cn.com/a1/d53c11fb5d4fd69529bc805d385fe818feb3f6.png
+  url: https://baidu.com
+---</code></pre>
+<h2 id="Import-external-articles"><a href="#Import-external-articles" class="headerlink" title="Import external articles"></a>Import external articles</h2><p>Using <code>link</code>, with customized article author information, you can display external articles or URLs in the article list, for example:</p>
+<pre><code class="yaml">---
+layout: post
+date: 2017-07-05
+title: [转] How to build an independent blog based on Hexo
+categories: [Dev, Hexo]
+tags:
+  -Hexo
+author:
+  name: xaoxuu
+  avatar: https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/avatar/avatar.png
+  url: https://xaoxuu.com
+link: https://xaoxuu.com/blog/2017-07-05-hexo-blog/
+---
+
+![](https://img.vim-cn.com/d9/a9af7dc49fc0af8ca3e6dd2450a2f7095a87db.png)
+</code></pre>
+<h2 id="Top"><a href="#Top" class="headerlink" title="Top"></a>Top</h2><p>For any article or page, set <code>pin: true</code> to put it on the top page.</p>
+<pre><code class="yaml">---
+pin: true
+---</code></pre>
+<p>This will cause a small problem: the number of post cards on the homepage is more than the set value. If you have obsessive-compulsive disorder and want the number of each page to be the same, you can install a plug-in to achieve it, see: [#421](<a href="https://github.com/">https://github.com/</a> volantis-x/hexo-theme-volantis/issues/421)</p>
+<h2 id="Do-not-archive"><a href="#Do-not-archive" class="headerlink" title="Do not archive"></a>Do not archive</h2><p>Articles stored in the <code>_posts</code> folder will generally appear on the archive page. If a post does not want to appear on the archive page:</p>
+<pre><code class="yaml">---
+archive: false
+---</code></pre>

@@ -1,0 +1,32 @@
+<hr>
+<p>robots: noindex,nofollow<br>sitemap: false<br>layout: page<br>group: docs-v4<br>meta:<br>  header: [centertitle]<br>sidebar: [docs-v4, toc, repos]<br>order: 545<br>short_title: false<br>title: ‘tag-plugins: video’</p>
+<hr>
+<pre><code class="md">{% video 视频链接 %}</code></pre>
+<h2 id="演示效果"><a href="#演示效果" class="headerlink" title="演示效果"></a>演示效果</h2><p>100%宽度</p>
+<p>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}</p>
+<p>50%宽度</p>
+<p>{% videos, 2 %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% endvideos %}</p>
+<p>25%宽度</p>
+<p>{% videos, 4 %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% endvideos %}</p>
+<h2 id="上述示例的源码"><a href="#上述示例的源码" class="headerlink" title="上述示例的源码"></a>上述示例的源码</h2><p>100%宽度</p>
+<pre><code class="md">{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}</code></pre>
+<p>50%宽度</p>
+<pre><code class="md">{% videos, 2 %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% endvideos %}</code></pre>
+<p>25%宽度</p>
+<pre><code class="md">{% videos, 4 %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% endvideos %}</code></pre>
+<h2 id="可以支持的参数"><a href="#可以支持的参数" class="headerlink" title="可以支持的参数"></a>可以支持的参数</h2><h3 id="对齐方向"><a href="#对齐方向" class="headerlink" title="对齐方向"></a>对齐方向</h3><pre><code>left, center, right</code></pre>
+<h3 id="列数"><a href="#列数" class="headerlink" title="列数"></a>列数</h3><p>逗号后面直接写列数，支持 1 ～ 4 列。</p>

@@ -1,0 +1,18 @@
+<hr>
+<p>layout: docs<br>group: docs-volantis-latest<br>order: 516<br>short_title: false<br>title:’tag-plugins: checkbox’<br>sidebar: [docs-volantis-latest, toc]<br>disqus:<br>  path: /wiki/volantis/</p>
+<hr>
+<pre><code class="md">{% checkbox style parameter (optional), text (support simple md) %}</code></pre>
+<h2 id="Demo-effect"><a href="#Demo-effect" class="headerlink" title="Demo effect"></a>Demo effect</h2><p>{% checkbox plain text test %}<br>{% checkbox checked, supports simple <a href="https://guides.github.com/features/mastering-markdown/">markdown</a> syntax %}<br>{% checkbox red, support custom color %}<br>{% checkbox green checked, green + default selected %}<br>{% checkbox yellow checked, yellow + default selected %}<br>{% checkbox cyan checked, cyan + default selected %}<br>{% checkbox blue checked, blue + default selected %}<br>{% checkbox plus green checked, increase %}<br>{% checkbox minus yellow checked, reduce %}<br>{% checkbox times red checked, cross %}</p>
+<h2 id="Source-code-of-the-above-example"><a href="#Source-code-of-the-above-example" class="headerlink" title="Source code of the above example"></a>Source code of the above example</h2><pre><code class="md">{% checkbox plain text test %}
+{% checkbox checked, supports simple [markdown](https://guides.github.com/features/mastering-markdown/) syntax %}
+{% checkbox red, support custom color %}
+{% checkbox green checked, green + default selected %}
+{% checkbox yellow checked, yellow + default selected %}
+{% checkbox cyan checked, cyan + default selected %}
+{% checkbox blue checked, blue + default selected %}
+{% checkbox plus green checked, increase %}
+{% checkbox minus yellow checked, reduce %}
+{% checkbox times red checked, cross %}</code></pre>
+<h2 id="Supportable-parameters"><a href="#Supportable-parameters" class="headerlink" title="Supportable parameters"></a>Supportable parameters</h2><h3 id="colour"><a href="#colour" class="headerlink" title="colour"></a>colour</h3><pre><code>red, yellow, green, cyan, blue</code></pre>
+<h3 id="Style"><a href="#Style" class="headerlink" title="Style"></a>Style</h3><pre><code>plus, minus, times</code></pre>
+<h3 id="Selected-state"><a href="#Selected-state" class="headerlink" title="Selected state"></a>Selected state</h3><pre><code>checked</code></pre>

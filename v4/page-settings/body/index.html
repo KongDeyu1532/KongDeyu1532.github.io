@@ -1,0 +1,47 @@
+<hr>
+<p>robots: noindex,nofollow<br>sitemap: false<br>layout: page<br>group: docs-v4<br>order: 403<br>short_title: 4-3 页面自定义布局<br>meta:<br>  header: [centertitle]<br>sidebar: [docs-v4, toc, repos]</p>
+<hr>
+<h2 id="显示迷你音乐播放器"><a href="#显示迷你音乐播放器" class="headerlink" title="显示迷你音乐播放器"></a>显示迷你音乐播放器</h2><p>标题右边显示迷你音乐播放器，支持的字段有：<code>server</code>、<code>type</code>、<code>id</code>。</p>
+<pre><code class="yaml">---
+music:
+ server: netease   # netease, tencent, kugou, xiami, baidu
+ type: song        # song, playlist, album, search, artist
+ id: 16846091      # song id / playlist id / album id / search keyword
+---</code></pre>
+<p>{% note play, 实际效果见： <a href="/contributors/">#contributors</a> %}</p>
+<h2 id="显示-meta-标签"><a href="#显示-meta-标签" class="headerlink" title="显示 meta 标签"></a>显示 meta 标签</h2><p>文章顶部和底部的日期、分类、更新日期、标签、分享等属于 meta 标签。</p>
+<pre><code class="yaml">---
+top_meta: false
+bottom_meta: false
+---</code></pre>
+<p>如果一个页面没有 title 则不会显示 top_meta ，像404、关于页面就可以完全隐藏：</p>
+<pre><code class="yaml">---
+seo_title: 关于
+top_meta: false
+bottom_meta: false
+---</code></pre>
+<h2 id="标题右边显示缩略图"><a href="#标题右边显示缩略图" class="headerlink" title="标题右边显示缩略图"></a>标题右边显示缩略图</h2><pre><code class="yaml">---
+thumbnail: https://img.vim-cn.com/17/0c7b02722686d1527a1df807dae0794d995860.png
+---</code></pre>
+<p>缩略图仅在文章列表和文章页面显示，不会在归档页面显示。</p>
+<h2 id="标题右边显示图标"><a href="#标题右边显示图标" class="headerlink" title="标题右边显示图标"></a>标题右边显示图标</h2><pre><code class="yaml">---
+icons: [fas fa-fire red, fas fa-star green]
+---</code></pre>
+<p>图标仅在归档页面中显示，可以用来标注热门文章。</p>
+<p>{% note info, 可以通过 red / blue / green / yellow / orange / theme / accent 来设置图标的颜色 %}</p>
+<h2 id="是否要显示封面"><a href="#是否要显示封面" class="headerlink" title="是否要显示封面"></a>是否要显示封面</h2><p>如果某个页面需要封面，可以这样写：</p>
+<pre><code class="yaml">---
+cover: true
+---</code></pre>
+<h2 id="显示侧边栏"><a href="#显示侧边栏" class="headerlink" title="显示侧边栏"></a>显示侧边栏</h2><p>通过自由设置边栏卡片来删减对应页面的冗余信息，提高有价值的信息在页面中的权重。</p>
+<p>如果某个页面不需要侧边栏，可以这样写：</p>
+<pre><code class="yaml">---
+sidebar: []
+---</code></pre>
+<p>某个页面想指定显示某几个侧边栏，就这样写:</p>
+<pre><code class="yaml">---
+sidebar: [grid, toc, tags] # 放置任何你想要显示的侧边栏部件
+---</code></pre>
+<h2 id="关闭评论"><a href="#关闭评论" class="headerlink" title="关闭评论"></a>关闭评论</h2><pre><code class="yaml">---
+comments: false
+---</code></pre>

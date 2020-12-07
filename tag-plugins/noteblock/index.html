@@ -1,0 +1,35 @@
+<hr>
+<p>layout: docs<br>group: docs-volantis-latest<br>order: 515<br>short_title: false<br>title:’tag-plugins: noteblock’<br>sidebar: [docs-volantis-latest, toc]<br>disqus:<br>  path: /wiki/volantis/</p>
+<hr>
+<p>NoteBlock is an enhanced version of Blockquote, with icons displayed on the left and colors can be customized. Note is a simple way of writing NoteBlock.</p>
+<pre><code class="md">{% noteblock style parameter (optional), title (optional) %}
+Text paragraph
+{% endnoteblock %}</code></pre>
+<h2 id="Demo-effect"><a href="#Demo-effect" class="headerlink" title="Demo effect"></a>Demo effect</h2><p>Some complicated structures can be placed in the block, and nesting is supported.</p>
+<p>{% noteblock, title (optional) %}</p>
+<p>Windows 10 is not designed for everyone, but for everyone</p>
+<p>{% noteblock done %}<br>Nested test: Please sit down and relax, I’m doing everything for you…<br>{% endnoteblock %}</p>
+<p>{% folding yellow, Folding test: Click to see more %}</p>
+<p>{% note warning, don’t say we haven’t warned you %}<br>{% noteblock bug red %}<br>We all have troubles<br>{% endnoteblock %}</p>
+<p>{% endfolding %}<br>{% endnoteblock %}</p>
+<h2 id="Source-code-of-the-above-example"><a href="#Source-code-of-the-above-example" class="headerlink" title="Source code of the above example"></a>Source code of the above example</h2><pre><code class="md">{% noteblock, title (optional) %}
+
+Windows 10 is not designed for everyone, but for everyone
+
+{% noteblock done %}
+Nested test: Please sit down and relax, I&#39;m helping you with everything...
+{% endnoteblock %}
+
+{% folding yellow, Folding test: click to see more %}
+
+{% note warning, don&#39;t say we haven&#39;t warned you %}
+{% noteblock bug red %}
+We all have troubles
+{% endnoteblock %}
+
+{% endfolding %}
+{% endnoteblock %}</code></pre>
+<h2 id="Supportable-parameters"><a href="#Supportable-parameters" class="headerlink" title="Supportable parameters"></a>Supportable parameters</h2><p>The position of style parameters can be written with icons and colors. Multiple style parameters are separated by spaces.</p>
+<h3 id="icon"><a href="#icon" class="headerlink" title="icon"></a>icon</h3><pre><code class="md">quote, info, warning, done/success, error/danger</code></pre>
+<pre><code class="md">radiation, bug, idea, link, paperclip, todo, message, guide, download, up, undo</code></pre>
+<h3 id="colour"><a href="#colour" class="headerlink" title="colour"></a>colour</h3><pre><code class="md">clear, light, gray, red, yellow, green, cyan, blue</code></pre>

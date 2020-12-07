@@ -1,0 +1,35 @@
+<hr>
+<p>robots: noindex,nofollow<br>sitemap: false<br>layout: page<br>group: docs-v4<br>meta:<br>  header: [centertitle]<br>sidebar: [docs-v4, toc, repos]<br>order: 515<br>short_title: false<br>title: ‘tag-plugins: noteblock’</p>
+<hr>
+<p>NoteBlock 是 Blockquote 的增强版，在左边显示图标，并且可以自定颜色。而 Note 是 NoteBlock 的简便写法。</p>
+<pre><code class="md">{% noteblock 样式参数（可选）, 标题（可选） %}
+文本段落
+{% endnoteblock %}</code></pre>
+<h2 id="演示效果"><a href="#演示效果" class="headerlink" title="演示效果"></a>演示效果</h2><p>可以在区块中放置一些复杂的结构，支持嵌套。</p>
+<p>{% noteblock, 标题（可选） %}</p>
+<p>Windows 10不是為所有人設計,而是為每個人設計</p>
+<p>{% noteblock done %}<br>嵌套测试： 请坐和放宽，我正在帮你搞定一切…<br>{% endnoteblock %}</p>
+<p>{% folding yellow, Folding 测试： 点击查看更多 %}</p>
+<p>{% note warning, 不要说我们没有警告过你 %}<br>{% noteblock bug red %}<br>我们都有不顺利的时候<br>{% endnoteblock %}</p>
+<p>{% endfolding %}<br>{% endnoteblock %}</p>
+<h2 id="上述示例的源码"><a href="#上述示例的源码" class="headerlink" title="上述示例的源码"></a>上述示例的源码</h2><pre><code class="md">{% noteblock, 标题（可选） %}
+
+Windows 10不是為所有人設計,而是為每個人設計
+
+{% noteblock done %}
+嵌套测试： 请坐和放宽，我正在帮你搞定一切...
+{% endnoteblock %}
+
+{% folding yellow, Folding 测试： 点击查看更多 %}
+
+{% note warning, 不要说我们没有警告过你 %}
+{% noteblock bug red %}
+我们都有不顺利的时候
+{% endnoteblock %}
+
+{% endfolding %}
+{% endnoteblock %}</code></pre>
+<h2 id="可以支持的参数"><a href="#可以支持的参数" class="headerlink" title="可以支持的参数"></a>可以支持的参数</h2><p>样式参数位置可以写图标和颜色，多个样式参数用空格隔开。</p>
+<h3 id="图标"><a href="#图标" class="headerlink" title="图标"></a>图标</h3><pre><code class="md">quote, info, warning, done/success, error/danger</code></pre>
+<pre><code class="md">radiation, bug, idea, link, paperclip, todo, message, guide, download, up, undo</code></pre>
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><pre><code class="md">clear, light, gray, red, yellow, green, cyan, blue</code></pre>

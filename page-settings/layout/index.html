@@ -1,0 +1,128 @@
+<hr>
+<p>layout: docs<br>title: page layout template<br>group: docs-volantis-latest<br>order: 401<br>short_title: 4-1 page layout template<br>sidebar: [docs-volantis-latest, toc]<br>disqus:<br>  path: /wiki/volantis/</p>
+<hr>
+<h2 id="Layout-template"><a href="#Layout-template" class="headerlink" title="Layout template"></a>Layout template</h2><p>{% table %}<br>| Value | Meaning |<br>| :—– | :—- |<br>| page | Independent page |<br>| post | Article page |<br>| docs | Documentation page |<br>| category | Category page |<br>| tag | Tag page |<br>| friends | Friends link page |<br>| list | List page |<br>{% endtable %}</p>
+<h2 id="page-amp-post-amp-docs"><a href="#page-amp-post-amp-docs" class="headerlink" title="page &amp; post &amp; docs"></a>page &amp; post &amp; docs</h2><p>These three types of pages are the same, but have the following subtle differences:</p>
+<ul>
+<li>When the post article has a title, scroll down the web page, the navigation bar will move up and out of the screen to display the article title, but page and docs will not.</li>
+<li>post At the end of the article, up to four modules can be displayed: “Reference”, “Related Article”, “Copyright Mark”, and “Reward”.</li>
+<li>At most one module of “reference” can be displayed at the end of the docs article.</li>
+</ul>
+<p>Except that the archive page is automatically generated, other independent pages need to be created manually.</p>
+<h2 id="Archive-page"><a href="#Archive-page" class="headerlink" title="Archive page"></a>Archive page</h2><p>The archive page is automatically generated and has been generated during initialization. The path is as follows:</p>
+<pre><code class="yaml"># Directory
+archive_dir: archives</code></pre>
+<h2 id="About-page"><a href="#About-page" class="headerlink" title="About page"></a>About page</h2><pre><code class="yaml">---
+layout: docs
+seo_title: About
+bottom_meta: false
+sidebar: []
+valine:
+  placeholder: What do you want to tell me?
+---
+
+Write about yourself below
+</code></pre>
+<h2 id="Category-page"><a href="#Category-page" class="headerlink" title="Category page"></a>Category page</h2><pre><code class="yaml">---
+layout: category
+index: true
+title: All categories
+---</code></pre>
+<h2 id="Tag-page"><a href="#Tag-page" class="headerlink" title="Tag page"></a>Tag page</h2><pre><code class="yaml">---
+layout: tag
+index: true
+title: all tags
+---</code></pre>
+<h2 id="List-page"><a href="#List-page" class="headerlink" title="List page"></a>List page</h2><pre><code class="yaml">---
+layout: list
+group: mylist
+index: true
+---</code></pre>
+<p>The result is to filter out all articles that contain <code>group: mylist</code> in the <code>front-matter</code> section.</p>
+<h2 id="Friends-link-page"><a href="#Friends-link-page" class="headerlink" title="Friends link page"></a>Friends link page</h2><h3 id="Create-page-file"><a href="#Create-page-file" class="headerlink" title="Create page file"></a>Create page file</h3><pre><code class="yaml">---
+layout: friends # required
+title: My friends # Optional, this is the title of the friend link page
+---
+
+Write the content above the friend chain here.
+
+&lt;!-- more --&gt;
+
+Here you can write text notes at the bottom of the friend chain page, such as your own friend chain specifications, examples, etc.
+</code></pre>
+<h3 id="Choose-a-layout"><a href="#Choose-a-layout" class="headerlink" title="Choose a layout"></a>Choose a layout</h3><p>Find the following in the theme configuration file:</p>
+<pre><code class="yaml">pages:
+  # Friends link page configuration
+  friends:
+    layout_scheme: traditional # simple: simple layout, traditional: traditional layout, sites: website card layout</code></pre>
+<p>Three layout schemes are currently provided:</p>
+<ul>
+<li>simple: Simple layout, only avatar and title.</li>
+<li>traditional: Traditional layout, the style of the old version of Volantis.</li>
+<li>sites: site card layout, which is the new style of website card tags added in Volantis 4.x.</li>
+</ul>
+<h3 id="Set-data-source"><a href="#Set-data-source" class="headerlink" title="Set data source"></a>Set data source</h3><p>{% tabs about, 1 %}</p>
+<!-- tab static data source -->
+
+<p>The data source of Friends Chain is written in the following path, if not, please create it yourself:</p>
+<pre><code>blog/source/_data/friends.yml</code></pre>
+<p>The content format is:</p>
+<pre><code class="yaml">-group: # Group title
+  description: # Group description
+  items:
+    -title: # name
+      avatar: # Avatar
+      url: # link
+      screenshot: # Screenshot
+      keywords: # Keywords
+      description: # description
+    -title: # name
+      avatar: # Avatar
+      url: # link
+      screenshot: # Screenshot
+      keywords: # Keywords
+      description: # description</code></pre>
+<p>Different layout methods will use some fields. Generally speaking, <code>title</code>, ʻavatar<code> and ʻurl</code> are all required. These data are converted into HTML tags and inserted into the <code>&lt;!-- more --&gt;</code> part of the friend link page.</p>
+<!-- endtab -->
+
+<!-- tab dynamic data source -->
+
+<p>Use the issues tag to get JSON data from issues to parse and generate HTML to fill in the page. The usage is as follows:</p>
+<pre><code>{% issues sites | api=https://api.github.com/repos/xaoxuu/friends/issues?sort=updated&amp;state=open&amp;page=1&amp;per_page=100&amp;labels=active %}</code></pre>
+<p>In this way, the way to add a friend chain becomes: the other party raises an Issue, reviews it by yourself, then adds the ʻactive` tag, and then refreshes the webpage to take effect. It is also very convenient to update the content of the friend chain. The creator of the issue has the right to modify and close it.</p>
+<p>Create a new GitHub or Gitee repository and create the Issues template as follows:</p>
+<pre><code class="json">{
+    &quot;title&quot;: &quot;&quot;,
+    &quot;screenshot&quot;: &quot;&quot;,
+    &quot;url&quot;: &quot;&quot;,
+    &quot;avatar&quot;: &quot;&quot;,
+    &quot;description&quot;: &quot;&quot;,
+    &quot;keywords&quot;: &quot;&quot;
+}</code></pre>
+<p>For details on how to use the issues tag, see this article:</p>
+<p>{% link static blog uses the Issues API to post updates, friend links, and bookmarks, <a href="https://xaoxuu.com/blog/2020-08-23-issues-api/">https://xaoxuu.com/blog/2020-08-23-issues-api/</a> %}</p>
+<!-- endtab -->
+
+<p>{% endtabs %}</p>
+<p>{% noteblock idea, suggest %}</p>
+<ul>
+<li>Both can be used at the same time. It is recommended to open the issues friend chain to everyone, and save it to the static friend chain if you contact yourself frequently.</li>
+<li>The actual speed and stability of the GitHub API is not as good as Gitee. If you pursue stability, it is recommended to use Gitee.</li>
+</ul>
+<p>{% endnoteblock %}</p>
+<h2 id="404-page"><a href="#404-page" class="headerlink" title="404 page"></a>404 page</h2><pre><code class="yaml">---
+cover: true
+robots: noindex,nofollow
+sitemap: false
+seo_title: 404 Not Found
+bottom_meta: false
+sidebar: []
+valine:
+  path: /404.html
+  placeholder: Please leave a message and tell me which page you want to visit is not found
+---
+
+{% p logo center huge, 404 %}
+{% p center bold, sorry, the page you visited does not exist %}
+{% p center small, the address may be entered incorrectly or the address has been deleted %}
+</code></pre>

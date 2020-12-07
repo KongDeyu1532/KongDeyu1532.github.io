@@ -1,0 +1,57 @@
+<hr>
+<p>layout: docs<br>group: docs-volantis-latest<br>order: 525<br>short_title: false<br>title:’tag-plugins: dropmenu’<br>sidebar: [docs-volantis-latest, toc]<br>disqus:<br>  path: /wiki/volantis/</p>
+<hr>
+<p>{% note warning, the label of this page will be refactored soon %}</p>
+<h2 id="Drop-down-menu"><a href="#Drop-down-menu" class="headerlink" title="Drop-down menu"></a>Drop-down menu</h2><p>Please upgrade your Volantis to version <u>3.0</u> and above.</p>
+<p>{% tabs menu, 3 %}</p>
+<!-- tab syntax format -->
+
+<p>{% p subtitle, container %}</p>
+<pre><code class="md">{% menu prefix (can be omitted), title, suffix (can be omitted) %}
+Menu content
+{% endmenu %}</code></pre>
+<p>{% p subtitle, menu content %}</p>
+<p>Menu Item</p>
+<pre><code class="md">{% menuitem text, link, icon %}</code></pre>
+<p>Dividing line</p>
+<pre><code class="md">{% menuitem hr %}</code></pre>
+<p>Submenu</p>
+<pre><code class="md">{% submenu Nested menu, icon %}
+Menu content
+{% endsubmenu %}</code></pre>
+<!-- endtab -->
+
+<!-- Tab example writing -->
+
+<p>{% p subtitle, example 1 %}</p>
+<pre><code class="md">{% menu drop-down menu %}
+{% menuitem theme source code, https://github.com/volantis-x/hexo-theme-volantis/, fas fa-file-code %}
+{% menuitem update log, https://github.com/volantis-x/hexo-theme-volantis/releases/, fas fa-clipboard-list %}
+{% menuitem hr %}
+{% submenu Have questions? , fas fa-question-circle %}
+{% menuitem see FAQ, /faqs/ %}
+{% menuitem see the source code of this site, https://github.com/volantis-x/volantis-docs/ %}
+{% menuitem raise an Issue, https://github.com/volantis-x/hexo-theme-volantis/issues/ %}
+{% endsubmenu %}
+{% endmenu %}</code></pre>
+<p>{% p subtitle, example 2 %}</p>
+<pre><code class="md">{% menu this is, drop-down menu %}
+(Same as above)
+{% endmenu %}</code></pre>
+<p>{% p subtitle, example 3 %}</p>
+<pre><code class="md">{% menu This is the example effect of the drop-down menu. %}
+(Same as above)
+{% endmenu %}</code></pre>
+<!-- endtab -->
+
+<!-- tab example effect -->
+
+<p>{% p subtitle, example 1 %}</p>
+<p>{% menu drop-down menu %}<br>{% menuitem theme source code, <a href="https://github.com/volantis-x/hexo-theme-volantis/">https://github.com/volantis-x/hexo-theme-volantis/</a>, fas fa-file-code %}<br>{% menuitem update log, <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/">https://github.com/volantis-x/hexo-theme-volantis/releases/</a>, fas fa-clipboard-list %}<br>{% menuitem hr %}<br>{% submenu Have questions? , fas fa-question-circle %}<br>{% menuitem see FAQ, /faqs/ %}<br>{% menuitem see the source code of this site, <a href="https://github.com/volantis-x/volantis-docs/">https://github.com/volantis-x/volantis-docs/</a> %}<br>{% menuitem raise an Issue, <a href="https://github.com/volantis-x/hexo-theme-volantis/issues/">https://github.com/volantis-x/hexo-theme-volantis/issues/</a> %}<br>{% endsubmenu %}<br>{% endmenu %}</p>
+<p>{% p subtitle, example 2 %}</p>
+<p>{% menu this is, drop-down menu %}<br>{% menuitem theme source code, <a href="https://github.com/volantis-x/hexo-theme-volantis/">https://github.com/volantis-x/hexo-theme-volantis/</a>, fas fa-file-code %}<br>{% menuitem update log, <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/">https://github.com/volantis-x/hexo-theme-volantis/releases/</a>, fas fa-clipboard-list %}<br>{% menuitem hr %}<br>{% submenu Have questions? , fas fa-question-circle %}<br>{% menuitem see FAQ, /faqs/ %}<br>{% menuitem see the source code of this site, <a href="https://github.com/volantis-x/volantis-docs/">https://github.com/volantis-x/volantis-docs/</a> %}<br>{% menuitem raise an Issue, <a href="https://github.com/volantis-x/hexo-theme-volantis/issues/">https://github.com/volantis-x/hexo-theme-volantis/issues/</a> %}<br>{% endsubmenu %}<br>{% endmenu %}</p>
+<p>{% p subtitle, example 3 %}</p>
+<p>{% menu This is the example effect of the drop-down menu. %}<br>{% menuitem theme source code, <a href="https://github.com/volantis-x/hexo-theme-volantis/">https://github.com/volantis-x/hexo-theme-volantis/</a>, fas fa-file-code %}<br>{% menuitem update log, <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/">https://github.com/volantis-x/hexo-theme-volantis/releases/</a>, fas fa-clipboard-list %}<br>{% menuitem hr %}<br>{% submenu Have questions? , fas fa-question-circle %}<br>{% menuitem see FAQ, /faqs/ %}<br>{% menuitem see the source code of this site, <a href="https://github.com/volantis-x/volantis-docs/">https://github.com/volantis-x/volantis-docs/</a> %}<br>{% menuitem raise an Issue, <a href="https://github.com/volantis-x/hexo-theme-volantis/issues/">https://github.com/volantis-x/hexo-theme-volantis/issues/</a> %}<br>{% endsubmenu %}<br>{% endmenu %}</p>
+<!-- endtab -->
+
+<p>{% endtabs %}</p>

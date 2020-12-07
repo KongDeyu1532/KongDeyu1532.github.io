@@ -1,0 +1,22 @@
+<hr>
+<p>layout: docs<br>group: docs-volantis-latest<br>order: 513<br>short_title: false<br>title:’tag-plugins: p’<br>sidebar: [docs-volantis-latest, toc]<br>disqus:<br>  path: /wiki/volantis/</p>
+<hr>
+<pre><code class="md">{% p style parameter, text content %}</code></pre>
+<h2 id="Demo-effect"><a href="#Demo-effect" class="headerlink" title="Demo effect"></a>Demo effect</h2><h3 id="Colored-text"><a href="#Colored-text" class="headerlink" title="Colored text"></a>Colored text</h3><p>It is convenient to insert labels of various colors in a paragraph, including: {% p red, red%}, {% p yellow, yellow%}, {% p green, green%}, {% p cyan, cyan%}, {% p blue, blue%}, {% p gray, gray%}.</p>
+<h3 id="Oversized-text"><a href="#Oversized-text" class="headerlink" title="Oversized text"></a>Oversized text</h3><p>The title part of the document “start” page is oversized text.</p>
+<p>{% p center logo large, Volantis %}<br>{% p center small, A Wonderful Theme for Hexo %}</p>
+<h2 id="Source-code-of-the-above-example"><a href="#Source-code-of-the-above-example" class="headerlink" title="Source code of the above example"></a>Source code of the above example</h2><pre><code class="md">### Colored text
+
+It is convenient to insert labels of various colors in a paragraph, including: {% p red, red%}, {% p yellow, yellow%}, {% p green, green%}, {% p cyan, cyan%}, {% p blue, blue%}, {% p gray, gray%}.
+
+### Oversized text
+
+The title part of the document &quot;start&quot; page is oversized text.
+
+{% p center logo large, Volantis %}
+{% p center small, A Wonderful Theme for Hexo %}</code></pre>
+<h2 id="Supportable-parameters"><a href="#Supportable-parameters" class="headerlink" title="Supportable parameters"></a>Supportable parameters</h2><p>The style parameter position can write color, size, and alignment direction, and multiple style parameters are separated by spaces.</p>
+<h3 id="Font"><a href="#Font" class="headerlink" title="Font"></a>Font</h3><pre><code>logo, code</code></pre>
+<h3 id="colour"><a href="#colour" class="headerlink" title="colour"></a>colour</h3><pre><code>red, yellow, green, cyan, blue, gray</code></pre>
+<h3 id="Size"><a href="#Size" class="headerlink" title="Size"></a>Size</h3><pre><code>small, h4, h3, h2, h1, large, huge, ultra</code></pre>
+<h3 id="Alignment-direction"><a href="#Alignment-direction" class="headerlink" title="Alignment direction"></a>Alignment direction</h3><pre><code>left, center, right</code></pre>

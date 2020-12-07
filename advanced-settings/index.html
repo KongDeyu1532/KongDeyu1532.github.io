@@ -1,0 +1,345 @@
+<hr>
+<p>layout: docs<br>group: docs-volantis-latest<br>order: 601<br>title: advanced settings<br>short_title: 6-1 advanced settings<br>sidebar: [docs-volantis-latest, toc]<br>disqus:<br>  path: /wiki/volantis/</p>
+<hr>
+<h2 id="Set-up-submodule"><a href="#Set-up-submodule" class="headerlink" title="Set up submodule"></a>Set up submodule</h2><p>{% folding yellow open, add the theme as a submodule %}</p>
+<pre><code class="sh">git submodule add https://github.com/volantis-x/hexo-theme-volantis.git themes/volantis</code></pre>
+<p>{% endfolding %}</p>
+<h2 id="Multiplayer-collaboration"><a href="#Multiplayer-collaboration" class="headerlink" title="Multiplayer collaboration"></a>Multiplayer collaboration</h2><p>The default author information is set in the theme configuration file:</p>
+<pre><code class="yaml"># Article layout
+article:
+  ...
+  body:
+    ...
+    meta_library:
+      author:
+        avatar:
+        name: Please set the author of the article
+        url: /</code></pre>
+<p>Volantis supports multiple authors, other author information needs to be written in the data file, for example:</p>
+<pre><code class="yaml">Jon:
+  name: Jon Snow
+  avatar: https://cn.bing.com/th?id=AMMS_fc8f99fd41ebd737a71c4e13806db9a0&amp;w=110&amp;h=110&amp;c=7&amp;rs=1&amp;qlt=80&amp;pcl=f9f9f9&amp;cdv=1&amp;dpr=2&amp;pid=16.1
+  url: https://gameofthrones.fandom.com/wiki/Jon_Snow
+Dany:
+  name: Daenerys Targaryen
+  avatar: https://tse1-mm.cn.bing.net/th?id=OIP.Yax4wLzIFbcBVUa_RsKywQHaLH&amp;w=80&amp;h=80&amp;c=8&amp;rs=1&amp;qlt=90&amp;dpr=2&amp;pid=3.1&amp;rm=2
+  url: https://gameofthrones.fandom.com/wiki/Daenerys_Targaryen</code></pre>
+<p>Just add ʻauthor` to the front-matter of the article:</p>
+<pre><code class="md">---
+title: Jon Snow | Game of Thrones Wiki | Fandom
+author: Jon
+---</code></pre>
+<h2 id="Speed-​​up-the-website"><a href="#Speed-​​up-the-website" class="headerlink" title="Speed ​​up the website"></a>Speed ​​up the website</h2><h3 id="Loading-speed"><a href="#Loading-speed" class="headerlink" title="Loading speed"></a>Loading speed</h3><ul>
+<li><p>Reduce unnecessary js plugins, such as word count, dynamic background.</p>
+</li>
+<li><p>Find and solve the slow down resources, take Chrome browser as an example:</p>
+<ol>
+<li>Right-click on the page and select “Check”.</li>
+<li>In the right window, “Network” tab, and check “Disable cache”.</li>
+<li>Refresh the web page to view resources that load slowly.</li>
+<li><ol>
+<li>For slow loading pictures, CDN is recommended.</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>It is recommended to discard the js plugins that load slowly and do not need to.</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>The js plug-in that is slow to load but must be used is recommended to download and upload to jsdelivr.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="Running-speed"><a href="#Running-speed" class="headerlink" title="Running speed"></a>Running speed</h3><ul>
+<li>When visiting a website with dynamic special effects backgrounds (such as snowflakes, particles, etc.), the phone will soon become hot and get stuck, the notebook will soon fan out and the browser prompts to close this page. If you want the website to have a good experience, please try not to install such plug-ins.</li>
+</ul>
+<h2 id="Optimize-SEO"><a href="#Optimize-SEO" class="headerlink" title="Optimize SEO"></a>Optimize SEO</h2><pre><code class="yaml">seo:
+  # When there are no keywords in the article&#39;s front-matter, use tags as keywords.
+  use_tags_as_keywords: true
+  # When there is no description in the article&#39;s front-matter, use excerpt as the description.
+  use_excerpt_as_description: true
+  robots:
+    home_first_page: index,follow
+    home_other_pages: noindex,follow
+    archive: noindex,follow
+    category: noindex,follow
+    tag: noindex,follow
+    # robots can be written in front-matter</code></pre>
+<p>In front-matter, you can set <code>keywords</code>, <code>description</code>, <code>robots</code> and <code>seo_title</code>. Among them, <code>seo_title</code> is only used as the title of the webpage and has a higher priority than <code>title</code>.</p>
+<ul>
+<li><p>Do not use H1 headings inside articles.</p>
+</li>
+<li><p>Check and delete the inaccessible links through the dead link detection tool.</p>
+</li>
+<li><p>Install SEO optimization plugin:<br>{% link hexo-autonofollow, <a href="https://github.com/liuzc/hexo-autonofollow">https://github.com/liuzc/hexo-autonofollow</a> %}<br>{% link hexo-generator-seo-friendly-sitemap, <a href="https://github.com/ludoviclefevre/hexo-generator-seo-friendly-sitemap">https://github.com/ludoviclefevre/hexo-generator-seo-friendly-sitemap</a> %}</p>
+</li>
+<li><p>Don’t pile up keywords on the page and don’t change the path frequently.</p>
+</li>
+</ul>
+<h2 id="Use-CDN"><a href="#Use-CDN" class="headerlink" title="Use CDN"></a>Use CDN</h2><p>For most users who deploy blogs to GitHub, it is relatively slow to load local resources directly. You can use the CDN service provided by jsdelivr for open source projects.</p>
+<p>For the <code>4.1.4+</code> version, the JS file uses the CDN compressed version of <a href="https://cdn.jsdelivr.net/npm/hexo-theme-volantis/source/js/">https://cdn.jsdelivr.net/npm/hexo-theme-volantis/source/js/</a> by default.</p>
+<p>For example: <code>https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.4/source/js/app.min.js</code></p>
+<h3 id="How-to-open"><a href="#How-to-open" class="headerlink" title="How to open"></a>How to open</h3><pre><code class="yaml">use_cdn: true</code></pre>
+<p>important:</p>
+<ol>
+<li>Developers note that ʻuse_cdn<code>is set to</code>false`.</li>
+<li>Pay attention to the version number of the CDN file:<pre><code class="yaml">info:
+theme_version: &#39;4.1.4&#39; # This is theme&#39;s version.</code></pre>
+</li>
+<li>Only JS files provide CDN by default.</li>
+<li>About CSS file CDN:<pre><code class="yaml">info:
+theme_name: Volantis # This is theme&#39;s name.
+theme_version: &#39;4.1.4&#39; # This is theme&#39;s version.
+theme_docs: https://volantis.js.org/ # This is theme&#39;s URL.
+theme_repo: https://github.com/volantis-x/hexo-theme-volantis
+cdn:
+ js: # The default is https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.4/source/js/app.min.js
+ css:
+   first: # CDN is not provided by default. First.css is the style rendered for the first screen, and contains the style of cover navbar search.
+   style: # CDN is not provided by default, and style.css is a delayed loading style.</code></pre>
+</li>
+</ol>
+<p>{% note info, if you need to DIY the style, you can just turn off the CDN of the style file. %}</p>
+<h3 id="Custom-CDN"><a href="#Custom-CDN" class="headerlink" title="Custom CDN"></a>Custom CDN</h3><p>If you upload the corresponding file to your CDN server, you can change the corresponding link to your own CDN link.</p>
+<h2 id="Try-Terser-to-compress-ES6"><a href="#Try-Terser-to-compress-ES6" class="headerlink" title="Try Terser to compress ES6"></a>Try Terser to compress ES6</h2><h3 id="Install-compression-tool"><a href="#Install-compression-tool" class="headerlink" title="Install compression tool"></a>Install compression tool</h3><pre><code class="shell">npm install -g gulp
+npm install --save gulp
+npm install --save gulp-html-minifier-terser
+npm install --save gulp-htmlclean
+npm install --save gulp-htmlmin
+npm install --save gulp-minify-css
+npm install gulp-terser --save-dev</code></pre>
+<h3 id="gulp-configuration-file"><a href="#gulp-configuration-file" class="headerlink" title="gulp configuration file"></a>gulp configuration file</h3><pre><code class="js">var gulp = require(&#39;gulp&#39;);
+var minifycss = require(&#39;gulp-minify-css&#39;);
+var htmlmin = require(&#39;gulp-html-minifier-terser&#39;);
+var htmlclean = require(&#39;gulp-htmlclean&#39;);
+var terser = require(&#39;gulp-terser&#39;);
+
+// Compress the css file
+const minify_css = () =&gt; (
+    gulp.src([&#39;./public/**/*.css&#39;])
+        .pipe(minifycss())
+        .pipe(gulp.dest(&#39;./public&#39;))
+);
+
+// Compress html file
+const minify_html = () =&gt; (
+    gulp.src([&#39;./public/**/*.html&#39;,&#39;!./public/{lib,lib/**}&#39;])
+        .pipe(htmlclean())
+        .pipe(htmlmin({
+            removeComments: true,
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true,
+        }))
+        .pipe(gulp.dest(&#39;./public&#39;))
+)
+
+// Compress the js file
+const minify_js = () =&gt; (
+    gulp.src([&#39;./public/**/*.js&#39;,&#39;!./public/**/*.min.js&#39;,&#39;!./public/{lib,lib/**}&#39;] )
+        .pipe(terser())
+        .pipe(gulp.dest(&#39;./public&#39;))
+)
+
+module.exports = {
+    minify_html: minify_html,
+    minify_css: minify_css,
+    minify_js: minify_js
+};
+gulp.task(&#39;one&#39;, gulp.parallel(
+    minify_html,
+    minify_css,
+    minify_js
+))
+
+gulp.task(&#39;default&#39;, gulp.series(&#39;one&#39;));</code></pre>
+<h3 id="Run-compression"><a href="#Run-compression" class="headerlink" title="Run compression"></a>Run compression</h3><pre><code class="shell">gulp</code></pre>
+<h2 id="Install-Service-Worker-Service"><a href="#Install-Service-Worker-Service" class="headerlink" title="Install Service Worker Service"></a>Install Service Worker Service</h2><pre><code class="yaml"># Global import
+import:
+  script:
+    -&lt;script&gt;&quot;serviceWorker&quot;in navigator&amp;&amp;navigator.serviceWorker.register(&quot;/sw.js&quot;).then(function(n){n.onupdatefound=function(){var e=n.installing;e.onstatechange=function( ){switch(e.state){case&quot;installed&quot;:navigator.serviceWorker.controller?console.log(&quot;Updated serviceWorker.&quot;):console.log(&quot;serviceWorker Sucess!&quot;);break;case&quot;redundant&quot;:console .log(&quot;The installing service worker became redundant.&quot;)}}}}).catch(function(e){console.log(&quot;Error during service worker registration:&quot;,e)}); &lt;/script&gt;</code></pre>
+<p>Create the <code>sw.js</code> file in <code>blog/source</code>.</p>
+<p>The content is as follows:</p>
+<pre><code class="js">importScripts(&#39;https://cdn.jsdelivr.net/npm/workbox-cdn@5.1.3/workbox/workbox-sw.js&#39;);
+
+workbox.setConfig({
+    modulePathPrefix:&#39;https://cdn.jsdelivr.net/npm/workbox-cdn@5.1.3/workbox/&#39;
+});
+
+const {core, precaching, routing, strategies, expiration, cacheableResponse, backgroundSync} = workbox;
+const {CacheFirst, NetworkFirst, NetworkOnly, StaleWhileRevalidate} = strategies;
+const {ExpirationPlugin} = expiration;
+const {CacheableResponsePlugin} = cacheableResponse;
+
+const cacheSuffixVersion =&#39;-000010&#39;, // The cache version number is extremely important. You must modify the cache version number when publishing web pages after modifying static files
+    maxEntries = 100;
+
+self.addEventListener(&#39;activate&#39;, (event) =&gt; {
+    event.waitUntil(
+        caches.keys().then((keys) =&gt; {
+            return Promise.all(keys.map((key) =&gt; {
+                if (!key.includes(cacheSuffixVersion)) return caches.delete(key);
+            }));
+        })
+    );
+});
+
+
+core.setCacheNameDetails({
+    prefix:&#39;volantis&#39;, // extremely important, draw up a name by yourself
+    suffix: cacheSuffixVersion
+});
+
+core.skipWaiting();
+core.clientsClaim();
+precaching.cleanupOutdatedCaches();
+
+/*
+ * Precache
+ *-Static Assets
+ */
+precaching.precacheAndRoute( // Extremely important defines the static file to be cached for the first time
+    [
+        {url:&#39;/css/first.css&#39;, revision: null },
+        {url:&#39;/css/style.css&#39;, revision: null },
+        {url:&#39;/js/app.js&#39;, revision: null },
+    ],
+);
+
+/*
+ * Cache File From CDN
+ *
+ * Method: CacheFirst
+ * cacheName: static-immutable
+ * cacheTime: 30d
+ */
+
+// cdn.jsdelivr.net-cors enabled
+routing.registerRoute(
+    /.*cdn\.jsdelivr\.net/,
+    new CacheFirst({
+        cacheName:&#39;static-immutable&#39; + cacheSuffixVersion,
+        fetchOptions: {
+            mode:&#39;cors&#39;,
+            credentials:&#39;omit&#39;
+        },
+        plugins: [
+            new ExpirationPlugin({
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+                purgeOnQuotaError: true
+            })
+        ]
+    })
+);
+
+// m7.music.126.net-cors enabled
+routing.registerRoute(
+    /.*m7\.music\.126\.net/,
+    new CacheFirst({
+        cacheName:&#39;static-immutable&#39; + cacheSuffixVersion,
+        fetchOptions: {
+            mode:&#39;cors&#39;,
+            credentials:&#39;omit&#39;
+        },
+        plugins: [
+            new ExpirationPlugin({
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+                purgeOnQuotaError: true
+            })
+        ]
+    })
+);
+
+/*
+ * No Cache
+ *
+ * Method: networkOnly
+ */
+routing.registerRoute(
+    /.*baidu\.com.*/,
+    new NetworkOnly()
+);
+/*
+ * Others img fonts
+ * Method: staleWhileRevalidate
+ */
+routing.registerRoute(
+    // Cache image fonts files
+    /.*\.(?:png|jpg|jpeg|svg|gif|webp|ico|eot|ttf|woff|woff2|mp3)/,
+    new StaleWhileRevalidate()
+);
+
+/*
+ * Static Assets
+ * Method: staleWhileRevalidate
+ */
+routing.registerRoute(
+    // Cache CSS files
+    /.*\.(css|js)/,
+    // Use cache but update in the background ASAP
+    new StaleWhileRevalidate()
+);
+
+/*
+ * sw.js-Revalidate every time
+ * staleWhileRevalidate
+ */
+routing.registerRoute(
+    &#39;/sw.js&#39;, // this file name
+    new StaleWhileRevalidate()
+);
+
+/*
+ * Default-Serve as it is
+ * networkFirst
+ */
+routing.setDefaultHandler(
+    new NetworkFirst({
+        networkTimeoutSeconds: 3
+    })
+);
+</code></pre>
+<p>{% note info, after modifying the static file, you must modify the cached version number when publishing a web page. %}</p>
+<h2 id="Install-the-“Related-Articles”-plugin"><a href="#Install-the-“Related-Articles”-plugin" class="headerlink" title="Install the “Related Articles” plugin"></a>Install the “Related Articles” plugin</h2><ol>
+<li><p>Install the plugin</p>
+<pre><code class="sh">npm i -S hexo-related-popular-posts</code></pre>
+</li>
+<li><p>Custom configuration method of plug-in:<br>{% link hexo-related-popular-posts, <a href="https://github.com/tea3/hexo-related-popular-posts">https://github.com/tea3/hexo-related-popular-posts</a> %}</p>
+</li>
+</ol>
+<p>If you use a header image, you can add the following settings in the site configuration file to make related articles display the correct article header image:</p>
+<pre><code class="yaml">popularPosts:
+  eyeCatchImageAttributeName: headimg</code></pre>
+<p>{% noteblock warning up, note %}</p>
+<p>You need to upgrade to 5.0.1 and above to support custom header images, see <a href="https://github.com/tea3/hexo-related-popular-posts/issues/29">#29</a></p>
+<p>{% endnoteblock %}</p>
+<h2 id="Analysis-and-Statistics"><a href="#Analysis-and-Statistics" class="headerlink" title="Analysis and Statistics"></a>Analysis and Statistics</h2><p>By default, the visit statistics of <a href="http://busuanzi.ibruce.info/">Bu Suanzi</a> are supported. You can add Baidu statistics and Google Analytics by yourself.</p>
+<h3 id="Word-count-and-reading-time"><a href="#Word-count-and-reading-time" class="headerlink" title="Word count and reading time"></a>Word count and reading time</h3><ol>
+<li>Install the following plugins:<pre><code>npm i --save hexo-wordcount</code></pre>
+</li>
+<li>Modify the configuration file and open the <code>wordcount</code> plugin<pre><code class="yaml">plugins:
+...
+# The word count of the article, the reading time, and the plug-in needs to be installed: npm i --save hexo-wordcount
+wordcount:
+ enable: #true</code></pre>
+</li>
+<li>Then modify the configuration file to write <code>wordcount</code> into the meta location that needs to be displayed:<pre><code class="yaml"># Article layout
+article:
+...
+# The layout scheme of the article card body on the article details page
+body:
+ # Top of article information
+ # Take from meta_library
+ top_meta: [..., wordcount, ...]
+ ...
+ # Information at the bottom of the article
+ # Take from meta_library
+ bottom_meta: [..., wordcount, ...]</code></pre>
+</li>
+</ol>
+<h3 id="CNZZ-Statistics"><a href="#CNZZ-Statistics" class="headerlink" title="CNZZ Statistics"></a>CNZZ Statistics</h3><p>Please refer to this tutorial by ZYMIN:<br>{% link Hexo hexo+ejs+material x Add CNZZ statistical code, <a href="https://zymin.cn/arcticle/hexo+ejs+material.html">https://zymin.cn/arcticle/hexo+ejs+material.html</a> %}</p>
+<h2 id="More-advanced-gameplay"><a href="#More-advanced-gameplay" class="headerlink" title="More advanced gameplay"></a>More advanced gameplay</h2><p>For details, please refer to this blog of <a href="https://www.itrhx.com/">@TRHX</a>:<br>{% link Hexo blog topic personalization, <a href="https://www.itrhx.com/2018/08/27/A04-Hexo-blog-topic-personalization/">https://www.itrhx.com/2018/08/27/A04-Hexo-blog-topic-personalization/</a> %}</p>
+<p>Contains a variety of detailed tutorials such as translucent cards, adding cartoon characters, custom mouse styles, mouse special effects, firework special effects, color scrolling fonts, website running time, dynamic browser titles, and snowflakes falling special effects.</p>
+<p>{% link theme official website #Advanced gameplay, <a href="https://volantis.js.org/categories/Advanced">https://volantis.js.org/categories/Advanced</a> gameplay/ %}</p>

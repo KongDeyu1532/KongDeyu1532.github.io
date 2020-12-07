@@ -1,0 +1,23 @@
+<hr>
+<p>layout: docs<br>group: docs-volantis-latest<br>order: 301<br>title: Create a theme configuration file<br>short_title: 3-1 Create theme profile<br>sidebar: [docs-volantis-latest, toc]<br>disqus:<br>  path: /wiki/volantis/</p>
+<hr>
+<p>The <code>_config.yml</code> file in the theme directory is usually responsible for theme-related configuration. We strongly recommend that you use a replacement theme configuration file to prevent your configuration from being lost. So how to use instead of theme configuration files?</p>
+<p>{% timeline %}</p>
+<p>{% timenode Step 1/2: Create configuration file %}</p>
+<p>Create a new file next to the <code>_config.yml</code> file in the blog root directory: <code>_config.volantis.yml</code>, the configuration information in this file has priority over the configuration files in the theme folder.</p>
+<p>{% endtimenode %}</p>
+<p>{% timenode Step 2/2: Overwrite custom configuration %}</p>
+<p>When you need to modify something, such as the navigation bar menu, then you need to find the relevant content in the theme configuration file and copy it into the configuration file you created:</p>
+<pre><code class="yaml">navbar:
+  visiable: auto # always, auto
+  logo: # choose [img] or [icon + title]
+    img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
+    icon:
+    title:
+  menu:
+    -name: blog
+      icon: fas fa-rss
+      url: /</code></pre>
+<p>{% noteblock idea yellow %}<br><strong>hint</strong><br>For themes installed using “<code>npm i hexo-theme-volantis</code>“, the theme configuration file is in “<code>blog/node_modules/hexo-theme-volantis/_config.yml</code>“<br>The theme installed in the traditional way, the theme configuration file is in “<code>blog/themes/volantis/_config.yml</code>“<br>{% endnoteblock %}</p>
+<p>{% endtimenode %}</p>
+<p>{% endtimeline %}</p>

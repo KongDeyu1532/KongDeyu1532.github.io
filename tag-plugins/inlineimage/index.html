@@ -1,0 +1,11 @@
+<hr>
+<p>layout: docs<br>group: docs-volantis-latest<br>order: 541<br>short_title: false<br>title:’tag-plugins: inlineimage’<br>sidebar: [docs-volantis-latest, toc]<br>disqus:<br>   path: /wiki/volantis/</p>
+<hr>
+<p>Inlineimage tag is a kind of inline image tag, which can be used to insert emoticons in the middle of a paragraph.</p>
+<pre><code class="md">{% inlineimage image link, height=height (optional) %}</code></pre>
+<h2 id="Demo-effect"><a href="#Demo-effect" class="headerlink" title="Demo effect"></a>Demo effect</h2><p>This is a passage from {% inlineimage <a href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif">https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif</a> %}.</p>
+<p>This is another paragraph of {% inlineimage <a href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/5150.gif">https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/5150.gif</a>, height=40px %}.</p>
+<h2 id="Source-code-of-the-above-example"><a href="#Source-code-of-the-above-example" class="headerlink" title="Source code of the above example"></a>Source code of the above example</h2><pre><code class="md">This is a passage from {% inlineimage https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/0000.gif %}.
+
+This is another paragraph of {% inlineimage https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/aru-l/5150.gif, height=40px %}.</code></pre>
+<h2 id="Supportable-parameters"><a href="#Supportable-parameters" class="headerlink" title="Supportable parameters"></a>Supportable parameters</h2><h3 id="Height"><a href="#Height" class="headerlink" title="Height"></a>Height</h3><pre><code>height=20px</code></pre>

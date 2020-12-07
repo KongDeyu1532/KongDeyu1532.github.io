@@ -1,0 +1,31 @@
+<hr>
+<p>robots: noindex,nofollow<br>sitemap: false<br>layout: page<br>group: docs-v4<br>meta:<br>  header: [centertitle]<br>sidebar: [docs-v4, toc, repos]<br>order: 542<br>short_title: false<br>title: ‘tag-plugins: image’</p>
+<hr>
+<p>Image 标签是一种针对单个图片应用场景的标签，支持图片描述文字和指定宽度。</p>
+<pre><code class="md">{% image 链接, width=宽度（可选）, height=高度（可选）, alt=描述（可选）, bg=占位颜色（可选） %}</code></pre>
+<h2 id="演示效果"><a href="#演示效果" class="headerlink" title="演示效果"></a>演示效果</h2><p>添加描述：</p>
+<p>{% image <a href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg">https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg</a>, alt=每天下课回宿舍的路，没有什么故事。 %}</p>
+<p>指定宽度：</p>
+<p>{% image <a href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg">https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg</a>, width=300px %}</p>
+<p>指定宽度并添加描述：</p>
+<p>{% image <a href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg">https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg</a>, width=300px, alt=每天下课回宿舍的路，没有什么故事。 %}</p>
+<p>设置占位背景色：</p>
+<p>{% image <a href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg">https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg</a>, width=414px, bg=#224855, alt=优化不同宽度浏览的观感 %}</p>
+<h2 id="上述示例的源码"><a href="#上述示例的源码" class="headerlink" title="上述示例的源码"></a>上述示例的源码</h2><pre><code class="md">添加描述：
+
+{% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, alt=每天下课回宿舍的路，没有什么故事。 %}
+
+指定宽度：
+
+{% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, width=400px %}
+
+指定宽度并添加描述：
+
+{% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, width=400px, alt=每天下课回宿舍的路，没有什么故事。 %}
+
+设置占位背景色：
+
+{% image https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg, width=400px, bg=#1D0C04, alt=优化不同宽度浏览的观感 %}</code></pre>
+<h2 id="可以支持的参数"><a href="#可以支持的参数" class="headerlink" title="可以支持的参数"></a>可以支持的参数</h2><h3 id="图片宽高度"><a href="#图片宽高度" class="headerlink" title="图片宽高度"></a>图片宽高度</h3><pre><code class="md">width=300px, height=32px</code></pre>
+<h3 id="图片描述"><a href="#图片描述" class="headerlink" title="图片描述"></a>图片描述</h3><pre><code class="md">alt=图片描述</code></pre>
+<h3 id="占位背景色"><a href="#占位背景色" class="headerlink" title="占位背景色"></a>占位背景色</h3><pre><code class="md">bg=#f2f2f2</code></pre>

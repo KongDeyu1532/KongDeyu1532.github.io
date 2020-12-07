@@ -1,0 +1,32 @@
+<hr>
+<p>layout: docs<br>group: docs-volantis-latest<br>order: 545<br>short_title: false<br>title:’tag-plugins: video’<br>sidebar: [docs-volantis-latest, toc]<br>disqus:<br>  path: /wiki/volantis/</p>
+<hr>
+<pre><code class="md">{% video video link %}</code></pre>
+<h2 id="Demo-effect"><a href="#Demo-effect" class="headerlink" title="Demo effect"></a>Demo effect</h2><p>100% width</p>
+<p>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}</p>
+<p>50% width</p>
+<p>{% videos, 2 %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% endvideos %}</p>
+<p>25% width</p>
+<p>{% videos, 4 %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% video <a href="https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov">https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov</a> %}<br>{% endvideos %}</p>
+<h2 id="Source-code-of-the-above-example"><a href="#Source-code-of-the-above-example" class="headerlink" title="Source code of the above example"></a>Source code of the above example</h2><p>100% width</p>
+<pre><code class="md">{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}</code></pre>
+<p>50% width</p>
+<pre><code class="md">{% videos, 2 %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% endvideos %}</code></pre>
+<p>25% width</p>
+<pre><code class="md">{% videos, 4 %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% video https://github.com/volantis-x/volantis-docs/releases/download/assets/IMG_0341.mov %}
+{% endvideos %}</code></pre>
+<h2 id="Supportable-parameters"><a href="#Supportable-parameters" class="headerlink" title="Supportable parameters"></a>Supportable parameters</h2><h3 id="Alignment-direction"><a href="#Alignment-direction" class="headerlink" title="Alignment direction"></a>Alignment direction</h3><pre><code>left, center, right</code></pre>
+<h3 id="Number-of-columns"><a href="#Number-of-columns" class="headerlink" title="Number of columns"></a>Number of columns</h3><p>Write the number of columns directly after the comma, and support 1 to 4 columns.</p>
