@@ -1,125 +1,173 @@
-<h2 id="布局模板"><a href="#布局模板" class="headerlink" title="布局模板"></a>布局模板</h2><p>{% table %}<br>| 取值  | 含义  |<br>| :—– | :—-  |<br>| page | 独立页面 |<br>| post | 文章页面 |<br>| docs | 文档页面 |<br>| category | 分类页面 |<br>| tag | 标签页面 |<br>| friends | 友链页面 |<br>| list | 列表页面 |<br>{% endtable %}</p>
-<h2 id="page-amp-post-amp-docs"><a href="#page-amp-post-amp-docs" class="headerlink" title="page &amp; post &amp; docs"></a>page &amp; post &amp; docs</h2><p>这三种页面相同，但是有以下细微区别：</p>
-<ul>
-<li>post 文章有 title 时，向下滚动网页，导航栏会向上移出屏幕显出文章标题，而 page 和 docs 不会。</li>
-<li>post 文章末尾最多可以显示「参考资料」、「相关文章」、「版权标识」、「打赏」四个模块。</li>
-<li>docs 文章末尾最多可以显示「参考资料」一个模块。</li>
-</ul>
-<p>除了归档页面是自动生成的，其它独立页面都需要手动创建 md 文件。</p>
-<h2 id="归档页面"><a href="#归档页面" class="headerlink" title="归档页面"></a>归档页面</h2><p>归档页面是自动生成的，并且初始化的时候已经生成，路径如下：</p>
-<pre><code class="yaml"># Directory
-archive_dir: archives</code></pre>
-<h2 id="关于页面"><a href="#关于页面" class="headerlink" title="关于页面"></a>关于页面</h2><pre><code class="yaml">---
-layout: docs
-seo_title: 关于
-bottom_meta: false
-sidebar: []
-valine:
-  placeholder: 有什么想对我说的呢？
----
+<!DOCTYPE html>
+<html lang="zn">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>link | CodeKong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="CodeKong">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.3.9',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
 
-下面写关于自己的内容
-</code></pre>
-<h2 id="分类页面"><a href="#分类页面" class="headerlink" title="分类页面"></a>分类页面</h2><pre><code class="yaml">---
-layout: category
-index: true
-title: 所有分类
----</code></pre>
-<h2 id="标签页面"><a href="#标签页面" class="headerlink" title="标签页面"></a>标签页面</h2><pre><code class="yaml">---
-layout: tag
-index: true
-title: 所有标签
----</code></pre>
-<h2 id="列表页面"><a href="#列表页面" class="headerlink" title="列表页面"></a>列表页面</h2><pre><code class="yaml">---
-layout: list
-group: mylist
-index: true
----</code></pre>
-<p>结果就是筛选出所有文章中 <code>front-matter</code> 部分含有 <code>group: mylist</code> 的文章。</p>
-<h2 id="友链页面"><a href="#友链页面" class="headerlink" title="友链页面"></a>友链页面</h2><h3 id="创建页面文件"><a href="#创建页面文件" class="headerlink" title="创建页面文件"></a>创建页面文件</h3><pre><code class="yaml">---
-layout: friends # 必须
-title: 我的朋友们 # 可选，这是友链页的标题
----
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
 
-这里写友链上方的内容。
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<div  class="single">
 
-&lt;!-- more --&gt;
+<div id="page">
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/post_cover.jpeg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/1.jpeg"></a></div>
+    <span>2020-12-07</span>
+    <h2>link</h2>
+    
+    </div>
+</div>
+</div>
 
-这里可以写友链页面下方的文字备注，例如自己的友链规范、示例等。
-</code></pre>
-<h3 id="选择布局方案"><a href="#选择布局方案" class="headerlink" title="选择布局方案"></a>选择布局方案</h3><p>在主题配置文件中找到以下内容：</p>
-<pre><code class="yaml">pages:
-  # 友链页面配置
-  friends:
-    layout_scheme: traditional # simple: 简单布局, traditional: 传统布局,  sites: 网站卡片布局</code></pre>
-<p>目前提供三种布局方案：</p>
-<ul>
-<li>simple: 简单布局，只有头像和标题。</li>
-<li>traditional: 传统布局，是 Volantis 旧版本的风格。</li>
-<li>sites: 网站卡片布局，是 Volantis 4.x 新增的网站卡片标签的样式。</li>
-</ul>
-<h3 id="设置数据源"><a href="#设置数据源" class="headerlink" title="设置数据源"></a>设置数据源</h3><p>{% tabs about, 1 %}</p>
-<!-- tab 静态数据源 -->
+<div id="lx-main-content">
+  <div class="lx-post"> 
+    <div class="lx-entry padding">
+      <div>
+        
+      </div>
+    </div>		
+  </div>
+</div>
+</div>
 
-<p>友链的数据源写在以下路径，如果没有请自行创建：</p>
-<pre><code>blog/source/_data/friends.yml</code></pre>
-<p>内容格式为：</p>
-<pre><code class="yaml">- group: # 分组标题
-  description:  # 分组描述
-  items:
-    - title: # 名称
-      avatar: # 头像
-      url: # 链接
-      screenshot: # 截图
-      keywords: # 关键词
-      description: # 描述
-    - title: # 名称
-      avatar: # 头像
-      url: # 链接
-      screenshot: # 截图
-      keywords: # 关键词
-      description: # 描述</code></pre>
-<p>不同的布局方式，会用到一部分的字段，一般来说，<code>title</code>、<code>avatar</code> 和 <code>url</code> 都是必须的。这些数据被转成 HTML 标签插入到友链页面的 <code>&lt;!-- more --&gt;</code> 部分。</p>
-<!-- endtab -->
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">CodeKong</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
 
-<!-- tab 动态数据源 -->
+</div>
 
-<p>使用 issues 标签可以从 issues 中获取 JSON 数据解析并生成 HTML 填充到页面中，使用方法如下：</p>
-<pre><code>{% issues sites | api=https://api.github.com/repos/xaoxuu/friends/issues?sort=updated&amp;state=open&amp;page=1&amp;per_page=100&amp;labels=active %}</code></pre>
-<p>这样添加友链的方式就变成了：对方提 Issue ，自己审核，然后添加 <code>active</code> 标签，然后刷新网页就生效了。更新友链内容也变得十分方便， Issue 的创建者拥有修改和关闭的权限。</p>
-<p>新建一个 GitHub 或者 Gitee 仓库，创建 Issues 模板，如下：</p>
-<pre><code class="json">{
-    &quot;title&quot;: &quot;&quot;,
-    &quot;screenshot&quot;: &quot;&quot;,
-    &quot;url&quot;: &quot;&quot;,
-    &quot;avatar&quot;: &quot;&quot;,
-    &quot;description&quot;: &quot;&quot;,
-    &quot;keywords&quot;: &quot;&quot;
-}</code></pre>
-<p>关于如何使用 issues 标签，详见这篇文章：</p>
-<p>{% link 静态博客使用 Issues API 发布动态、友链、书签, <a target="_blank" rel="noopener" href="https://xaoxuu.com/blog/2020-08-23-issues-api/">https://xaoxuu.com/blog/2020-08-23-issues-api/</a> %}</p>
-<!-- endtab -->
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/1.jpeg" alt="CodeKong"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>CodeKong</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+    
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>Pages</span>
+        <ul>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>Friends</span>
+        <ul>
+          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
 
-<p>{% endtabs %}</p>
-<p>{% noteblock idea, 建议 %}</p>
-<ul>
-<li>两者是可以同时使用的哦，建议开放 issues 友链给大家，常联系的自己再保存到静态友链。</li>
-<li>实测 GitHub API 速度和稳定性不如 Gitee ，如果追求稳定建议使用 Gitee。</li>
-</ul>
-<p>{% endnoteblock %}</p>
-<h2 id="404页面"><a href="#404页面" class="headerlink" title="404页面"></a>404页面</h2><pre><code class="yaml">---
-cover: true
-robots: noindex,nofollow
-sitemap: false
-seo_title: 404 Not Found
-bottom_meta: false
-sidebar: []
-valine:
-  path: /404.html
-  placeholder: 请留言告诉我您要访问哪个页面找不到了
----
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
 
-{% p logo center huge, 404 %}
-{% p center bold, 很抱歉，您访问的页面不存在 %}
-{% p center small, 可能是输入地址有误或该地址已被删除 %}
-</code></pre>
+
+</body>
+</html>
