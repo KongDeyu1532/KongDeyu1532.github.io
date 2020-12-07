@@ -1,110 +1,470 @@
-<pre><code class="yaml"># 文章布局
-article:
-  # 文章列表页面的文章卡片布局方案
-  preview:
-    scheme: landscape # landscape
-    # pin icon for post
-    pin_icon: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg
-    # auto generate title if not exist
-    auto_title: true # false, true
-    # auto generate excerpt if not exist
-    auto_excerpt: true # false, true
-    # show split line or not
-    line_style: solid # hidden, solid, dashed, dotted
-    # show readmore button
-    readmore: auto # auto, always
-  # 文章详情页面的文章卡片本体布局方案
-  body:
-    # 文章顶部信息
-    # 从 meta_library 中取
-    top_meta: [author, category, date, counter]
-    # ----------------
-    # 文章页脚组件
-    footer_widget:
-      # ----------------
-      # 参考资料、相关资料等 (for layout: post/docs)
-      references:
-        title: 参考资料
-        icon: fas fa-quote-left
-        # 在 front-matter 中:
-        #   references:
-        #     - title: 某篇文章
-        #       url: https://
-        # 即可显示此组件。
-      # ----------------
-      # 相关文章，需要安装插件 (for layout: post)
-      # npm i hexo-related-popular-posts
-      related_posts:
-        enable: false
-        title: 相关文章
-        icon: fas fa-bookmark
-        max_count: 5
-        # 设为空则不使用文章头图
-        placeholder_img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg
-      # ----------------
-      # 版权声明组件 (for layout: post/docs)
-      copyright:
-        enable: true
-        permalink: &#39;本文永久链接是：&#39;
-        content:
-          - &#39;博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议&#39;
-          - permalink
-      # ----------------
-      # 打赏组件 (for layout: post/docs)
-      donate:
-        enable: false
-        images:
-          - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
-          - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
-    # 文章底部信息
-    # 从 meta_library 中取
-    bottom_meta: [updated, tags, share]
-    # meta library
-    meta_library:
-      # 默认文章作者（可在 front-matter 中覆盖）
-      author:
-        avatar:
-        name: 请设置文章作者
-        url: /
-      # 文章创建日期
-      date:
-        icon: fas fa-calendar-alt
-        title: &#39;发布于：&#39;
-        format: &#39;ll&#39; # 日期格式 http://momentjs.com/docs/
-      # 文章更新日期
-      updated:
-        icon: fas fa-edit
-        title: &#39;更新于：&#39;
-        format: &#39;ll&#39; # 日期格式 http://momentjs.com/docs/
-      # 文章分类
-      category:
-        icon: fas fa-folder-open
-      # 文章浏览计数
-      counter:
-        icon: fas fa-eye
-        unit: &#39;次浏览&#39;
-      # 文章评论数量：只支持 valine
-      valinecount:
-        icon: fas fa-comment-dots
-        desc: &#39;&#39; # 条评论
-      # 文章字数和阅读时长
-      wordcount:
-        icon_wordcount: fas fa-keyboard
-        icon_duration: fas fa-hourglass-half
-      # 文章标签
-      tags:
-        icon: fas fa-hashtag
-      # 分享
-      share:
-        - id: qq
-          img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png
-        - id: qzone
-          img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png
-        - id: weibo
-          img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png
-        - id: # qrcode # 当id为qrcode时需要安装插件  npm i hexo-helper-qrcode
-          img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png
-        - id: # telegram
-          img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png
-</code></pre>
-<p>其中 <code>top_meta</code> 和 <code>bottom_meta</code> 部分的取值自 <code>meta_library</code> 库。</p>
+<!DOCTYPE html>
+<html lang="zn">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>CodeKong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="CodeKong">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.3.9',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<div class="single">
+
+<div id="page">
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/post_cover.jpeg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/1.jpeg"></a></div>
+    <span>2020-11-27</span>
+    <h2></h2>
+    
+    </div>
+</div>
+</div>
+
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h2 id="1-什么是云计算"><a href="#1-什么是云计算" class="headerlink" title="1.什么是云计算"></a>1.什么是云计算</h2><ul>
+<li><p>云计算（Cloud Computing）是基于互联网的相关服务的增加、使用和交付模式，通常涉及通过互联网来提供动态易扩展且经常是虚拟化的资源。</p>
+</li>
+<li><p>云计算是一种按使用量付费的模式，这种模式是提供可用的、便捷的、按需的网络访问，进入可配置的计算资源共享池，这些资源能够被快速提供，只需投入很少的管理工作，或与服务供应商进行很少的交互。</p>
+</li>
+</ul>
+<h2 id="2-云计算的产生背景"><a href="#2-云计算的产生背景" class="headerlink" title="2.云计算的产生背景"></a>2.云计算的产生背景</h2><ul>
+<li><p>云计算是继20世纪80年代大型计算机到客户/服务器的大转变的又一种巨变。</p>
+</li>
+<li><p>云计算是分布式计算（Distributed Computing）、并行计算（Parallel Computing）、效用计算（Utility Computing）、网络存储（Network Storage Technologies）、虚拟化（Virtualization）、负荷均衡（Load Balance）、热备份冗余（High Available）等传统计算机和网络技术发展融合的产物。</p>
+</li>
+</ul>
+<h2 id="3-云计算的发展历史"><a href="#3-云计算的发展历史" class="headerlink" title="3.云计算的发展历史"></a>3.云计算的发展历史</h2><ul>
+<li>P2</li>
+</ul>
+<h2 id="4-分布式计算（定义-优点）"><a href="#4-分布式计算（定义-优点）" class="headerlink" title="4.分布式计算（定义/优点）"></a>4.分布式计算（定义/优点）</h2><ul>
+<li><p>定义：</p>
+<blockquote>
+<p>分布式计算是一种计算方法，和集中式计算是相对的。</p>
+<p>分布式计算将应用分解为许多更小的部分，分配到多台计算机进行处理，这样可以节省整体计算时间，大大提高计算效率。</p>
+</blockquote>
+</li>
+<li><p>优点：</p>
+<blockquote>
+<p>发挥“集体的力量”，将大任务分解成小任务，分配给多个计算节点同时去计算。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="5-云计算的关键技术"><a href="#5-云计算的关键技术" class="headerlink" title="5.云计算的关键技术"></a>5.云计算的关键技术</h2><ul>
+<li>分布式海量数据存储</li>
+<li>虚拟化技术</li>
+<li>云平台技术</li>
+<li>并行编程技术</li>
+<li>数据管理技术</li>
+</ul>
+<h2 id="6-虚拟化技术（定义-优点）"><a href="#6-虚拟化技术（定义-优点）" class="headerlink" title="6.虚拟化技术（定义/优点）"></a>6.虚拟化技术（定义/优点）</h2><ul>
+<li><p>定义：</p>
+<blockquote>
+<p>虚拟化技术是云计算系统的核心组成部分之一，是将各种计算及存储资源充分整合和高效利用的关键技术。</p>
+</blockquote>
+</li>
+<li><p>优点：</p>
+<blockquote>
+<p>资源共享</p>
+<p>资源定制</p>
+<p>细粒度资源管理</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="7-云交付模型"><a href="#7-云交付模型" class="headerlink" title="7.云交付模型"></a>7.云交付模型</h2><ul>
+<li><p>软件及服务（Software as a Service，SaaS）</p>
+</li>
+<li><p>平台及服务（Platform as a Service，Paas）</p>
+</li>
+<li><p>基础设施服务（Infrastructure as a Service，IaaS）</p>
+</li>
+<li><p>基本云交付模型的比较</p>
+<table>
+<thead>
+<tr>
+<th>云交付模型</th>
+<th>服务对象</th>
+<th>使用方式</th>
+<th>关键技术</th>
+<th align="left">用户的控制等级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IaaS</td>
+<td>需要硬件资源的用户</td>
+<td>使用者上传数据、程序代码、环境配置</td>
+<td>虚拟化技术、分布式海量数据存储等</td>
+<td align="left">使用和配置</td>
+</tr>
+<tr>
+<td>PaaS</td>
+<td>程序开发者</td>
+<td>使用者上传数据、程序代码</td>
+<td>云平台技术、数据管理技术等</td>
+<td align="left">有限的管理</td>
+</tr>
+<tr>
+<td>SaaS</td>
+<td>企业和需要软件应用的用户</td>
+<td>使用者上传数据</td>
+<td>Web服务技术、互联网应用开发技术等</td>
+<td align="left">完全的权限</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="8-云部署模式"><a href="#8-云部署模式" class="headerlink" title="8.云部署模式"></a>8.云部署模式</h2><ul>
+<li><p>公有云</p>
+<blockquote>
+<p>为外部客户提供服务的云，它所有的服务是供别人使用，而不是自己使用</p>
+</blockquote>
+</li>
+<li><p>私有云</p>
+<blockquote>
+<p>指企业自己使用的云，它所有的服务不是供别人使用，而是供自己内部人员或分支机构使用</p>
+</blockquote>
+</li>
+<li><p>混合云</p>
+<blockquote>
+<p>指供自己和客户共同使用的云，它所提供的的服务既可以供别人使用，也可以供自己使用</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="9-云计算的优势与挑战"><a href="#9-云计算的优势与挑战" class="headerlink" title="9.云计算的优势与挑战"></a>9.云计算的优势与挑战</h2><ul>
+<li>P14</li>
+</ul>
+<h2 id="10-典型云应用"><a href="#10-典型云应用" class="headerlink" title="10.典型云应用"></a>10.典型云应用</h2><ul>
+<li>云存储</li>
+<li>云服务</li>
+<li>云物联 </li>
+</ul>
+<h2 id="11-什么是虚拟化"><a href="#11-什么是虚拟化" class="headerlink" title="11.什么是虚拟化"></a>11.什么是虚拟化</h2><ul>
+<li>虚拟化是指计算机软件在虚拟的基础上而不是在真实的，独立的物理硬件基础上运行。</li>
+</ul>
+<h2 id="12-虚拟化带来的好处"><a href="#12-虚拟化带来的好处" class="headerlink" title="12.虚拟化带来的好处"></a>12.虚拟化带来的好处</h2><ul>
+<li>提高资源利用率</li>
+<li>降低成本，节能减排</li>
+<li>统一管理</li>
+<li>提高安全性</li>
+</ul>
+<h2 id="13-虚拟化的分类"><a href="#13-虚拟化的分类" class="headerlink" title="13.虚拟化的分类"></a>13.虚拟化的分类</h2><ul>
+<li>服务器虚拟化</li>
+<li>网络虚拟化</li>
+<li>存储虚拟化</li>
+</ul>
+<h2 id="14-虚拟化与云计算"><a href="#14-虚拟化与云计算" class="headerlink" title="14.虚拟化与云计算"></a>14.虚拟化与云计算</h2><ul>
+<li>云计算将是下一代计算模式的演变方向，而虚拟化则是实现这种转变的最为重要的基石。虚拟化技术与云计算几乎是相辅相成的，在云计算涉及的地方，都有虚拟化的存在，可以说，虚拟化的技术是云计算实现的关键，没有虚拟化技术，谈不上云计算的实现。所以虚拟化与云计算有着紧密的关系，有了虚拟化的发展，使云计算成为可能，而随着云计算的发展，带动虚拟化技术进一步的成熟和完善。</li>
+</ul>
+<h2 id="15-云计算的特点"><a href="#15-云计算的特点" class="headerlink" title="15.云计算的特点"></a>15.云计算的特点</h2><ul>
+<li>跨平台性</li>
+<li>易用性</li>
+<li>轻量性</li>
+</ul>
+<h2 id="16-大数据的特点"><a href="#16-大数据的特点" class="headerlink" title="16.大数据的特点"></a>16.大数据的特点</h2><ul>
+<li>Volume（体量）</li>
+<li>Variety（多样）</li>
+<li>Velocity（速率）</li>
+<li>Value（价值）</li>
+</ul>
+<h2 id="17-大数据存储的问题"><a href="#17-大数据存储的问题" class="headerlink" title="17.大数据存储的问题"></a>17.大数据存储的问题</h2><ul>
+<li>容量</li>
+<li>延迟</li>
+<li>安全</li>
+<li>成本</li>
+<li>灵活性</li>
+</ul>
+<h2 id="18-HDFS（分布式文件系统）"><a href="#18-HDFS（分布式文件系统）" class="headerlink" title="18.HDFS（分布式文件系统）"></a>18.HDFS（分布式文件系统）</h2><ul>
+<li><p>优点：</p>
+<blockquote>
+<p>HDFS是一个高度容错性的系统，适合部署在廉价的机器上</p>
+<p>HDFS能够提供高吞吐量的数据访问，非常适合大规模数据集上的应用</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>客户端访问HDFS中文件的流程：</p>
+<blockquote>
+<p>（1）从NameNode获取组成这个文件的数据块位置列表</p>
+<p>（2）根据位置列表得到储存数据块的DataNode</p>
+<p>（3）访问DataNode获取数据</p>
+</blockquote>
+</li>
+<li><p>分块的原因：</p>
+<blockquote>
+<ul>
+<li>HDFS将文件数据分割成若干数据块（Block），每个DataNode存储</li>
+</ul>
+<p>一部分数据块，这样文件就分布存储在整个HDFS服务器集群中</p>
+<ul>
+<li>应用程序客户端（Client）可以并行地对这些数据块进行访问，极大</li>
+</ul>
+<p>地提高了访问速度</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="19-列式数据库"><a href="#19-列式数据库" class="headerlink" title="19.列式数据库"></a>19.列式数据库</h2><ul>
+<li><p>HBase以表的形式存放数据。表由行和列组成，每个列属于某个列簇，由行和列确定的存储单元称为元素，每个元素保存了同一份数据的多个版本，由时间戳来表示区分。</p>
+</li>
+<li><p>BigTab——分布式数据存储系统</p>
+<blockquote>
+<p><strong>特点：</strong></p>
+<p>广泛应用性、可扩展性、高性能、高可用性</p>
+</blockquote>
+</li>
+<li><p>HBase——非关系型分布式数据库</p>
+<blockquote>
+<p><strong>特点：</strong>高可靠、高性能、面向列、可伸缩</p>
+<p><strong>优点：</strong>存储非结构化和半结构化的数据</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="20-分布式处理"><a href="#20-分布式处理" class="headerlink" title="20.分布式处理"></a>20.分布式处理</h2><ul>
+<li><p>CPU多核</p>
+<blockquote>
+<p>多任务能力强</p>
+</blockquote>
+</li>
+<li><p>MPI并行计算框架</p>
+<blockquote>
+<p>是一个标准且可移植的消息传递系统，服务于大规模的并行计算。广泛采用的实现有 MPICH</p>
+</blockquote>
+</li>
+<li><p>Hadoop MapReduce</p>
+<blockquote>
+<p>Hadoop框架最核心的设计就是HDFS和MapReduce，HDFS为海量的数据提供存储，而MapReduce为海量的数据提供计算。</p>
+</blockquote>
+</li>
+<li><p>Spark</p>
+<blockquote>
+<p>Spark是一个高性能的内存分布式计算框架，具备扩展性、任务容错等特性。</p>
+<p>Spark 基于 map-reduce 算法实现的分布式计算，拥有 Hadoop MapReduce 所具有的优点。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="21-Hadoop-MapReduce架构"><a href="#21-Hadoop-MapReduce架构" class="headerlink" title="21.Hadoop MapReduce架构"></a>21.Hadoop MapReduce架构</h2><ul>
+<li>MapReduce是一种分布式计算框架，能够处理大量数据，并提供容错，可靠等功能，运行在大规模计算集群中。</li>
+<li>MapReduce计算框架采用主从架构，由Client、JobTracker、TaskTarcker组成。</li>
+</ul>
+<h2 id="22-MapReduce工作机制"><a href="#22-MapReduce工作机制" class="headerlink" title="22.MapReduce工作机制"></a>22.MapReduce工作机制</h2><ul>
+<li>MapReduce计算模式的功能原理是把计算任务拆解成Map和Reduce两个过程来执行。</li>
+<li>一个MapReduce程序一般分为Map和Reduce两个阶段，中间可能会有combine。在数据被分割后通过Map函数的程序将数据映射成不同的区块，分配给计算机集群处理达到分布式运算的效果，再通过Reduce函数的程序将结果汇整，最后输出运行计算结果。</li>
+<li>Map</li>
+<li>Reduce</li>
+<li>Combine</li>
+<li>Shuffle</li>
+</ul>
+<h2 id="23-Spark与MapReduce对比"><a href="#23-Spark与MapReduce对比" class="headerlink" title="23.Spark与MapReduce对比"></a>23.Spark与MapReduce对比</h2><ul>
+<li><p>在计算中间结果方面：</p>
+<blockquote>
+<p>Spark要求计算结果快速返回、处理任务低延迟，因此Spark基本把数据存放在内存中。</p>
+<p>MapReduce计算过程把Map任务产生的计算结果放到本地磁盘。</p>
+</blockquote>
+</li>
+<li><p>在计算模型方面：</p>
+<blockquote>
+<p>Spark采用DAG描述计算任务，所有的RDD操作最后都采用DAG描述，然后优化分发到各个计算节点上运行，因此Spark拥有更丰富的功能。</p>
+<p>MapReduce只采用Map( )和Reduce( )两个函数，计算功能比较简单。</p>
+</blockquote>
+</li>
+<li><p>在计算速度方面：</p>
+<blockquote>
+<p>Spark采用内存作为计算结果的主要存储介质，速度更快。</p>
+<p>MapReduce用本地磁盘作为中间结果存储介质。</p>
+</blockquote>
+</li>
+<li><p>在容错方面：</p>
+<blockquote>
+<p>Spark采用和MapReduce类似的方式。针对丢失和无法引用的RDD：Spark采用记录的transformation,采取重新过已做过的transfromation。</p>
+</blockquote>
+</li>
+<li><p>在计算成本方面：</p>
+<blockquote>
+<p>Spark需要高容量的内存。</p>
+<p>MapReduce是面向磁盘的分布式计算框架。</p>
+<p>因此Spark的计算成本高于MapReduce计算框架。</p>
+</blockquote>
+</li>
+<li><p>在简单易管理方面：</p>
+<blockquote>
+<p>Spark在同一个集群上运行流处理、批处理和机器学习，同时Spark也可以管理不同的负载。MapReduce都做不到。</p>
+</blockquote>
+</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/11/30/JVM/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3></h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-r.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/11/25/FastJson/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3></h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">CodeKong</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
+
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/1.jpeg" alt="CodeKong"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>CodeKong</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+    
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>Pages</span>
+        <ul>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>Friends</span>
+        <ul>
+          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+
+
+</body>
+</html>
